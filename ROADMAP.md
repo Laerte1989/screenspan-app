@@ -1,0 +1,175 @@
+# Roadmap
+
+Dove è arrivato ScreenSpan e dove sta andando.
+
+*Italian below, with bilingual headings. Sono intenzioni in ordine di
+priorità, non date: quello che ha una data è solo la scadenza tecnica
+imposta da Android (vedi «Sempre in corso»).*
+
+---
+
+## ✅ Fatto — Done
+
+Tutto quello che è già nell'app pubblicata.
+
+- [x] **Schermo unito su più telefoni** · *Merged screen across phones*
+      Un'app scelta dall'utente gira su uno schermo più grande di quello
+      del telefono, e la parte che non ci sta la mostrano gli altri.
+- [x] **Tocco e scrittura da ogni telefono** · *Touch and typing from every phone*
+      Tocchi, trascinamenti, gesti a due dita, testo e tasto Indietro:
+      partono da qualunque telefono e arrivano sull'app condivisa.
+- [x] **Collegamento diretto fra i telefoni** · *Direct phone-to-phone link*
+      Wi-Fi Direct con annuncio e ricerca automatica: nessun router,
+      nessuna rete in comune, e le immagini non passano da internet.
+- [x] **Due disposizioni** · *Two arrangements*
+      Telefoni affiancati (in verticale) o impilati (in orizzontale),
+      con la disposizione decisa dal telefono che condivide e annunciata
+      all'altro.
+- [x] **Preparazione una volta sola** · *One-time setup*
+      Circa due minuti sul solo telefono che condivide, con procedura
+      guidata schermata per schermata e
+      [guida illustrata](https://laerte1989.github.io/screenspan-app/guide.html).
+      Resta fatta dopo riavvii e reinstallazioni.
+- [x] **Qualità regolabile a caldo** · *Live quality tuning*
+      Fotogrammi al secondo e nitidezza si cambiano mentre si condivide,
+      con il massimo misurato sul telefono invece che indovinato.
+- [x] **Anteprima sul telefono che condivide** · *Self-view on the sharing phone*
+      Anche la sorgente vede la propria porzione, così si controlla
+      l'effetto senza guardare l'altro telefono.
+- [x] **Prova gratuita e abbonamento** · *Free trial and subscription*
+      15 minuti al giorno per provarla, abbonamento annuale per l'uso
+      quotidiano, e chi guarda non paga mai.
+- [x] **Riprese automatiche dai guasti** · *Automatic recovery*
+      Il decoder si ricostruisce da solo, la ricerca riparte, e
+      l'autorizzazione si rifà quando il telefono smette di fidarsi
+      della chiave già accoppiata.
+
+---
+
+## 🎯 In arrivo — Next
+
+In ordine di quanto cambiano l'esperienza, non di quanto sono facili.
+
+### 1. Disposizione a puzzle · Puzzle layout
+
+Oggi i telefoni possono stare solo tutti in verticale affiancati o tutti
+in orizzontale impilati. La disposizione **mista** è la richiesta più
+naturale: due telefoni in verticale accanto a uno in orizzontale, una L,
+una griglia 2×2 con un telefono ruotato.
+
+Sono due lavori che vanno insieme, perché uno senza l'altro non serve:
+
+- il telefono che condivide deve poter costruire uno schermo di forma
+  qualunque e assegnare a ciascun telefono un rettangolo qualunque, non
+  più una fetta uguale alle altre;
+- serve una **schermata dove trascinare i telefoni** al posto in cui
+  stanno davvero sul tavolo. Senza quella, una disposizione libera
+  diventa impossibile da spiegare.
+
+### 2. L'audio insieme all'immagine · Audio along with the picture
+
+Oggi ScreenSpan condivide **solo l'immagine**: l'audio del film resta
+sull'altoparlante del telefono che condivide. Guardando in due va
+ancora bene; con i telefoni distanti no.
+
+Due modi, e probabilmente serviranno entrambi: mandare l'audio a un
+telefono scelto, oppure dividere destra e sinistra fra i due — che con
+due telefoni affiancati è stereo vero.
+
+### 3. La guida per il telefono che hai · A guide for your own phone
+
+La guida all'accoppiamento è fotografata su un realme, e il testo stesso
+deve avvisare che «su altri telefoni può chiamarsi diversamente». È il
+punto in cui si perdono più persone: chi non trova la voce con quel nome
+si fermerà lì.
+
+Una versione per marca — Samsung, Xiaomi, Pixel, Huawei, Motorola — con
+i nomi veri di quelle voci e gli screenshot di quei telefoni. Non è
+codice: è la cosa che più farebbe arrivare in fondo chi ha installato.
+
+### 4. Le cornici non spezzano l'immagine · Bezel compensation
+
+Fra due telefoni affiancati ci sono due cornici. L'immagine oggi
+continua come se non ci fossero, quindi attraversando la giunzione un
+oggetto in movimento fa un piccolo salto. Sottraendo quei millimetri —
+misurati o dichiarati dall'utente — la linea che attraversa i due
+schermi torna a essere una linea.
+
+### 5. Riconoscere da sé come sono disposti · Detect the arrangement itself
+
+Invece di chiedere la disposizione, ricavarla: un dito trascinato da uno
+schermo all'altro attraverso la giunzione dice quali due telefoni si
+toccano e su quale lato. Un gesto al posto di un menù.
+
+### 6. Attenzione a batteria e calore · Battery and heat awareness
+
+Condividere a 30 fotogrammi al secondo scalda e consuma. Riconoscere
+quando il telefono si sta scaldando o è sotto una certa carica, e
+scendere di qualità da solo avvisando, invece di lasciare che il sistema
+tagli la corrente a metà film.
+
+### 7. Mostrare la stessa cosa a tutti · Same picture on every phone
+
+L'opposto di quello che ScreenSpan fa, ed è per questo che sarebbe una
+modalità a parte e non il comportamento normale: un piccolo gruppo che
+guarda lo stesso contenuto, ciascuno sul proprio telefono. Utile per
+mostrare qualcosa a tre persone sedute intorno a un tavolo.
+
+### 8. Appunti condivisi · Shared clipboard
+
+Copiare su un telefono e incollare sull'altro, dato che i due sono già
+collegati e già si scambiano il testo digitato.
+
+### 9. Tablet e Android TV come schermo · Tablet and Android TV as a display
+
+Un tablet come telefono che guarda dà molto più spazio di un telefono, e
+non richiede niente che non ci sia già. Va però verificato sul serio
+come si comporta sugli schermi grandi (vedi la scadenza qui sotto).
+
+---
+
+## 🔄 Sempre in corso — Ongoing
+
+Non finisce mai, e vale la pena metterlo per iscritto.
+
+- [ ] **Nuove versioni di Android** · *New Android versions*
+      Ogni versione cambia qualcosa proprio dove ScreenSpan lavora:
+      permessi, servizi in primo piano, gestione degli schermi. La
+      scadenza già nota e datata è **`targetSdk 37`**, quando Android
+      smetterà di rispettare l'orientamento richiesto dalle app sugli
+      schermi grandi: entro allora il telefono che guarda deve adattarsi
+      alla forma che riceve invece di pretenderne una.
+- [ ] **Nuovi telefoni** · *New phones*
+      Il Wi-Fi Direct è la parte che ogni produttore implementa a modo
+      suo, e quasi ogni difetto vero di quest'app viene da lì. Ogni
+      modello provato è un modello in meno che si comporta a sorpresa.
+- [ ] **Prove su telefoni veri, non solo compilazione** · *Testing on real hardware*
+      L'ultima regressione seria è stata trovata solo mettendo due
+      telefoni sul tavolo, e nessun test automatico l'avrebbe vista.
+      Dopo ogni modifica al collegamento fra i telefoni, si riprova
+      sull'hardware.
+
+---
+
+## 🚫 Non in programma — Not planned
+
+Dirlo evita che venga richiesto tre volte.
+
+- **Collegamento su rete Wi-Fi normale.** Il Wi-Fi Direct è l'unico
+  trasporto per scelta: funziona anche dove non c'è nessuna rete, e non
+  fa passare le immagini per un router che non controlliamo.
+- **iPhone.** iOS non offre nulla di equivalente: né il collegamento
+  diretto usato qui, né la possibilità di creare uno schermo aggiuntivo
+  per un'app. Non è una questione di tempo, è che non si può.
+- **Root o modifiche al sistema.** L'autorizzazione che ScreenSpan usa è
+  una funzione standard di Android, revocabile in qualunque momento. Non
+  si andrà oltre.
+
+---
+
+## Hai un'idea?
+
+Le [Issues](https://github.com/Laerte1989/screenspan-app/issues) sono
+aperte, e c'è un modulo pronto per le proposte. La cosa più utile che
+puoi scrivere non è la soluzione: è **cosa stavi provando a fare** e
+cosa te lo ha impedito.
