@@ -33,9 +33,6 @@ Tutto quello che è già nell'app pubblicata.
 - [x] **Qualità regolabile a caldo** · *Live quality tuning*
       Fotogrammi al secondo e nitidezza si cambiano mentre si condivide,
       con il massimo misurato sul telefono invece che indovinato.
-- [x] **Anteprima sul telefono che condivide** · *Self-view on the sharing phone*
-      Anche la sorgente vede la propria porzione, così si controlla
-      l'effetto senza guardare l'altro telefono.
 - [x] **Prova gratuita e abbonamento** · *Free trial and subscription*
       15 minuti al giorno per provarla, abbonamento annuale per l'uso
       quotidiano, e chi guarda non paga mai.
@@ -66,6 +63,10 @@ Sono due lavori che vanno insieme, perché uno senza l'altro non serve:
   stanno davvero sul tavolo. Senza quella, una disposizione libera
   diventa impossibile da spiegare.
 
+È il punto dove ScreenSpan mantiene la promessa fino in fondo: **il
+telefono pieghevole te lo costruisci tu**, della forma che ti serve in
+quel momento, con i telefoni che hai già in casa.
+
 ### 2. La guida per il telefono che hai · A guide for your own phone
 
 La guida all'accoppiamento è fotografata su un realme, e il testo stesso
@@ -77,44 +78,17 @@ Una versione per marca — Samsung, Xiaomi, Pixel, Huawei, Motorola — con
 i nomi veri di quelle voci e gli screenshot di quei telefoni. Non è
 codice: è la cosa che più farebbe arrivare in fondo chi ha installato.
 
-### 3. Le cornici non spezzano l'immagine · Bezel compensation
-
-Fra due telefoni affiancati ci sono due cornici. L'immagine oggi
-continua come se non ci fossero, quindi attraversando la giunzione un
-oggetto in movimento fa un piccolo salto. Sottraendo quei millimetri —
-misurati o dichiarati dall'utente — la linea che attraversa i due
-schermi torna a essere una linea.
-
-### 4. Riconoscere da sé come sono disposti · Detect the arrangement itself
-
-Invece di chiedere la disposizione, ricavarla: un dito trascinato da uno
-schermo all'altro attraverso la giunzione dice quali due telefoni si
-toccano e su quale lato. Un gesto al posto di un menù.
-
-### 5. Attenzione a batteria e calore · Battery and heat awareness
-
-Condividere a 30 fotogrammi al secondo scalda e consuma. Riconoscere
-quando il telefono si sta scaldando o è sotto una certa carica, e
-scendere di qualità da solo avvisando, invece di lasciare che il sistema
-tagli la corrente a metà film.
-
-### 6. Mostrare la stessa cosa a tutti · Same picture on every phone
-
-L'opposto di quello che ScreenSpan fa, ed è per questo che sarebbe una
-modalità a parte e non il comportamento normale: un piccolo gruppo che
-guarda lo stesso contenuto, ciascuno sul proprio telefono. Utile per
-mostrare qualcosa a tre persone sedute intorno a un tavolo.
-
-### 7. Appunti condivisi · Shared clipboard
+### 3. Appunti condivisi · Shared clipboard
 
 Copiare su un telefono e incollare sull'altro, dato che i due sono già
 collegati e già si scambiano il testo digitato.
 
-### 8. Tablet e Android TV come schermo · Tablet and Android TV as a display
+### 4. Tablet e Android TV come schermo · Tablet and Android TV as a display
 
 Un tablet come telefono che guarda dà molto più spazio di un telefono, e
 non richiede niente che non ci sia già. Va però verificato sul serio
-come si comporta sugli schermi grandi (vedi la scadenza qui sotto).
+come si comporta sugli schermi grandi — vedi la scadenza di
+`targetSdk 37` in «Sempre in corso».
 
 ---
 

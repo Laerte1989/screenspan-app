@@ -2,8 +2,8 @@
 
 # ScreenSpan
 
-**Due telefoni, un solo schermo.**
-*Two phones, one screen.*
+**Un telefono pieghevole fatto con i telefoni che hai già.**
+*A foldable phone made from the phones you already have.*
 
 [![Google Play](https://img.shields.io/badge/Google%20Play-Scarica-0F9D58?logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=olmelli.ing.technology.screenspan)
 [![Sito](https://img.shields.io/badge/Sito-laerte1989.github.io-5B8DEF)](https://laerte1989.github.io/screenspan-app/)
