@@ -105,6 +105,45 @@ def controlla(pagina):
             errore(pagina, f"possibile segreto nel testo: {trovato.group(0)[:30]}")
 
 
+# Le vocali accentate scritte con l'apostrofo: "e'" invece di "e",
+# "piu'" invece di "piu". Nei commenti del codice sorgente di questo
+# progetto e' la convenzione voluta; nel TESTO CHE LEGGE L'UTENTE e' un
+# errore di ortografia, e sono due cose che si confondono facilmente
+# lavorando sugli stessi file. Ne sono passate sette in una sola
+# modifica, incluse una nella <meta description> - che e' il testo che
+# Google mostra nei risultati - e un "c'e'" che un primo controllo piu'
+# ingenuo non aveva visto.
+ACCENTI_MANCATI = [
+    "e", "piu", "gia", "perche", "cosi", "puo", "meta", "sara",
+    "verra", "potra", "dovra", "citta", "qualita", "possibilita",
+    "necessita", "cioe", "ventitre", "tre",
+]
+
+
+def controlla_accenti(pagina, s):
+    """Cerca l'apostrofo al posto dell'accento nel solo testo visibile."""
+
+    # Il testo italiano dei blocchi tradotti, piu' le meta - che si
+    # vedono nei risultati di ricerca e nelle anteprime dei link.
+    #
+    # SI CHIUDE SUL NOME DEL TAG, non sul primo "</" che capita: la
+    # prima versione di questo controllo si fermava al </strong> dentro
+    # al paragrafo e non guardava il resto, dove infatti si nascondeva
+    # un "c'e'" che e' passato liscio.
+    pezzi = re.findall(
+        r'<([a-z0-9]+)[^>]*data-lang="it"[^>]*>(.*?)</\1>', s, re.S)
+    pezzi = [testo for _tag, testo in pezzi]
+    pezzi += re.findall(r'<meta name="description" content="([^"]*)"', s)
+
+    parole = "|".join(ACCENTI_MANCATI)
+
+    for pezzo in pezzi:
+        # Niente lookbehind su lettera: cosi' anche la seconda meta' di
+        # "c'e'" viene vista.
+        for trovato in re.findall(r"(?<![A-Za-z\u00c0-\u00ff])(" + parole + r")'", pezzo):
+            errore(pagina, f"accento scritto con l'apostrofo nel testo visibile: \"{trovato}'\"")
+
+
 def controlla_condivisione():
     """Le meta per le condivisioni, che si vedono solo incollando il link."""
 
@@ -131,6 +170,9 @@ def main():
 
     for pagina in PAGES:
         controlla(pagina)
+
+        if os.path.exists(pagina):
+            controlla_accenti(pagina, open(pagina, encoding="utf-8").read())
 
     controlla_condivisione()
 
