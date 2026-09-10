@@ -1,19 +1,19 @@
-name: Controlli del sito
+name: Site checks
 
-# Gira su ogni modifica alle pagine. Non compila e non distribuisce
-# niente - la pubblicazione la fa GitHub Pages da sola - ma impedisce che
-# finiscano online un link rotto, una pagina senza viewport o una
-# stringa che non doveva diventare pubblica.
+# Runs on every change to the pages. It builds nothing and deploys
+# nothing - GitHub Pages publishes on its own - but it stops a broken
+# link, a page with no viewport, or a string that was never meant to be
+# public from going online.
 on:
   push:
     branches: [main]
-    paths: ["*.html", "*.jpg", "tools/**", ".github/workflows/site.yml"]
+    paths: ["*.html", "*.md", "*.jpg", "LICENSE", "tools/**", ".github/workflows/site.yml"]
   pull_request:
   workflow_dispatch:
 
 jobs:
   check:
-    name: Link, lingue, meta, segreti
+    name: Links, languages, meta tags, secrets
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

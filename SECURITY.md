@@ -1,55 +1,6 @@
-# Segnalare un problema di sicurezza
-
-*English below.*
-
-## Non aprire una issue pubblica
-
-Se pensi di aver trovato una vulnerabilità in ScreenSpan, **non
-descriverla nelle Issues**: sarebbe leggibile da tutti prima che esista
-una correzione, e chi la legge per primo non è necessariamente chi vuole
-aiutare.
-
-Scrivi invece a **[laerte.developer@gmail.com](mailto:laerte.developer@gmail.com)**,
-con oggetto che comincia per `[SECURITY]`.
-
-## Cosa mettere nella segnalazione
-
-Più preciso è, prima si corregge:
-
-- Che cosa si ottiene sfruttandola, in una frase.
-- I passaggi per riprodurla, nell'ordine.
-- Modello dei telefoni e versione di Android su cui l'hai vista.
-- Se serve essere collegati allo stesso gruppo Wi-Fi Direct, o basta
-  essere sulla stessa rete Wi-Fi normale.
-
-## Cosa aspettarsi
-
-- **Conferma di ricezione entro 3 giorni.**
-- Una valutazione con quello che ho capito e cosa intendo fare, entro 14
-  giorni.
-- Se la correzione arriva in una versione pubblicata, il merito è tuo se
-  vuoi essere citato — e resta anonimo se preferisci.
-
-Non c'è un programma di ricompense: è un'app sviluppata da una persona
-sola. Quello che posso offrire è di prenderla sul serio e rispondere.
-
-## Dove guardare, se ti interessa
-
-Due punti valgono più degli altri, e vale la pena dirlo apertamente:
-
-- **Le tre porte TCP** che i telefoni si aprono fra loro (video, comandi,
-  geometria). Accettano connessioni solo dalla sottorete del gruppo Wi-Fi
-  Direct o dal telefono stesso; il traffico dentro il gruppo è in chiaro,
-  protetto dalla cifratura WPA2 del gruppo. Chi è già dentro il gruppo è
-  considerato autorizzato: è una scelta dichiarata, non una dimenticanza.
-- **L'accoppiamento con il debug wireless** di Android, che il telefono
-  sorgente usa per creare lo schermo aggiuntivo. È una funzione standard
-  di Android, l'accoppiamento vale solo per quel telefono, ed è revocabile
-  in qualunque momento dalle impostazioni di sistema.
-
----
-
 # Reporting a security issue
+
+*🇮🇹 [Versione italiana](#-italiano) più in basso.*
 
 ## Do not open a public issue
 
@@ -95,3 +46,54 @@ Two areas matter more than the rest, and it is worth saying so openly:
   extra screen. It is a standard Android feature, the pairing applies to
   that phone alone, and it can be revoked at any time from the system
   settings.
+
+---
+
+# 🇮🇹 Italiano
+
+## Segnalare un problema di sicurezza
+
+### Non aprire una issue pubblica
+
+Se pensi di aver trovato una vulnerabilità in ScreenSpan, **non
+descriverla nelle Issues**: sarebbe leggibile da tutti prima che esista
+una correzione, e chi la legge per primo non è necessariamente chi vuole
+aiutare.
+
+Scrivi invece a **[laerte.developer@gmail.com](mailto:laerte.developer@gmail.com)**,
+con oggetto che comincia per `[SECURITY]`.
+
+### Cosa mettere nella segnalazione
+
+Più preciso è, prima si corregge:
+
+- Che cosa si ottiene sfruttandola, in una frase.
+- I passaggi per riprodurla, nell'ordine.
+- Modello dei telefoni e versione di Android su cui l'hai vista.
+- Se serve essere collegati allo stesso gruppo Wi-Fi Direct, o basta
+  essere sulla stessa rete Wi-Fi normale.
+
+### Cosa aspettarsi
+
+- **Conferma di ricezione entro 3 giorni.**
+- Una valutazione con quello che ho capito e cosa intendo fare, entro 14
+  giorni.
+- Se la correzione arriva in una versione pubblicata, il merito è tuo se
+  vuoi essere citato — e resta anonimo se preferisci.
+
+Non c'è un programma di ricompense: è un'app sviluppata da una persona
+sola. Quello che posso offrire è di prenderla sul serio e rispondere.
+
+### Dove guardare, se ti interessa
+
+Due punti valgono più degli altri, e vale la pena dirlo apertamente:
+
+- **Le tre porte TCP** che i telefoni si aprono fra loro (video, comandi,
+  geometria). Accettano connessioni solo dalla sottorete del gruppo Wi-Fi
+  Direct o dal telefono stesso; il traffico dentro il gruppo è in chiaro,
+  protetto dalla cifratura WPA2 del gruppo. Chi è già dentro il gruppo è
+  considerato autorizzato: è una scelta dichiarata, non una dimenticanza.
+- **L'accoppiamento con il debug wireless** di Android, che il telefono
+  sorgente usa per creare lo schermo aggiuntivo. È una funzione standard
+  di Android, l'accoppiamento vale solo per quel telefono, ed è revocabile
+  in qualunque momento dalle impostazioni di sistema.

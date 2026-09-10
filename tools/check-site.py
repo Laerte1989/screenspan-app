@@ -1,30 +1,28 @@
 #!/usr/bin/env python3
 """
-Controlli sul sito di ScreenSpan.
+Checks for the ScreenSpan website.
 
-PERCHE' ESISTE. Il sito e' fatto di tre pagine bilingui in HTML scritto a
-mano, e ognuno dei difetti che cerca qui sotto e' un difetto che c'e'
-stato davvero:
+WHY THIS EXISTS. The site is three hand-written bilingual HTML pages, and
+every defect looked for below is a defect that actually happened:
 
-  - un link nel footer che puntava a una pagina inesistente (privacy.html),
-    rimasto li' per mesi perche' nessuno clicca il proprio footer;
-  - una pagina senza <meta viewport>, che sul telefono si apriva
-    rimpicciolita - ed era la guida, cioe' l'unica pagina che si legge
-    con il telefono in mano;
-  - due attributi class= sullo stesso tag, dove il secondo veniva
-    ignorato in silenzio dal browser;
-  - un blocco tradotto presente in italiano e mancante in inglese, che
-    non si vede a occhio perche' l'altra lingua e' nascosta.
+  - a footer link pointing at a page that did not exist (privacy.html),
+    left there for months because nobody clicks their own footer;
+  - a page with no <meta viewport>, which opened shrunk on a phone - and
+    it was the guide, i.e. the one page people read with a phone in hand;
+  - two class= attributes on the same tag, where the second one was
+    silently ignored by the browser;
+  - a translated block present in Italian and missing in English, which
+    is invisible to the eye because the other language is hidden.
 
-Nessuno di questi rompe la pagina in modo evidente: la pagina si apre,
-sembra funzionare, e il difetto lo trova un visitatore. Questi controlli
-costano due secondi e li trovano prima.
+None of these breaks the page in an obvious way: the page opens, it looks
+like it works, and the defect is found by a visitor. These checks cost
+two seconds and find them first.
 
-Si lancia a mano dalla radice del repository:
+Run it by hand from the repository root:
 
     python3 tools/check-site.py
 
-Esce con codice 1 se qualcosa non va, cosi' la CI se ne accorge.
+Exits with status 1 if anything is wrong, so CI notices.
 """
 
 import os
@@ -33,11 +31,11 @@ import sys
 
 PAGES = ["index.html", "guide.html", "privacy.html"]
 
-# Il sito e' pubblico: qualunque di queste stringhe sarebbe un errore
-# grave, non un dettaglio da sistemare poi.
-SEGRETI = [
-    r"AIza[A-Za-z0-9_-]{15,}",          # chiave API Google
-    r"screenspan-[0-9a-f]{5}",          # id del progetto Firebase
+# The site is public: any of these strings would be a serious mistake,
+# not a detail to fix later.
+SECRETS = [
+    r"AIza[A-Za-z0-9_-]{15,}",          # Google API key
+    r"screenspan-[0-9a-f]{5}",          # Firebase project id
     r"firebasedatabase\.app",
     r"apps\.googleusercontent\.com",
     r"PLAY_SERVICE_ACCOUNT",
@@ -45,198 +43,273 @@ SEGRETI = [
     r"-----BEGIN [A-Z ]*PRIVATE KEY-----",
 ]
 
-problemi = []
+problems = []
 
 
-def errore(pagina, testo):
-    problemi.append(f"{pagina}: {testo}")
+def fail(page, text):
+    problems.append(f"{page}: {text}")
 
 
-def controlla(pagina):
+def check_page(page):
 
-    if not os.path.exists(pagina):
-        errore(pagina, "la pagina non esiste")
+    if not os.path.exists(page):
+        fail(page, "the page does not exist")
         return
 
-    s = open(pagina, encoding="utf-8").read()
+    s = open(page, encoding="utf-8").read()
 
-    # ── la testa della pagina ────────────────────────────────────────────
+    # -- the head of the page -------------------------------------------
     if "<meta charset" not in s:
-        errore(pagina, "manca <meta charset>")
+        fail(page, "missing <meta charset>")
 
     if 'name="viewport"' not in s:
-        errore(pagina, "manca <meta viewport>: sul telefono si apre rimpicciolita")
+        fail(page, "missing <meta viewport>: it opens shrunk on a phone")
 
     if "<title>" not in s:
-        errore(pagina, "manca <title>")
+        fail(page, "missing <title>")
 
-    # ── link interni ────────────────────────────────────────────────────
+    # -- internal links ------------------------------------------------
     for href in sorted(set(re.findall(r'href="([^"#:]+\.(?:html|jpg|png|css|js))"', s))):
         if not os.path.exists(href):
-            errore(pagina, f'il link "{href}" punta a un file che non esiste')
+            fail(page, f'the link "{href}" points at a file that does not exist')
 
     for src in sorted(set(re.findall(r'src="((?!data:|https?:)[^"]+)"', s))):
         if not os.path.exists(src):
-            errore(pagina, f'l\'immagine "{src}" non esiste')
+            fail(page, f'the image "{src}" does not exist')
 
-    # ── attributi class duplicati ───────────────────────────────────────
+    # -- duplicate class attributes ------------------------------------
     for tag in re.findall(r"<[a-zA-Z][^>]*>", s):
         if tag.count("class=") > 1:
-            errore(pagina, f"due attributi class sullo stesso tag: {tag[:80]}")
+            fail(page, f"two class attributes on the same tag: {tag[:80]}")
 
-    # ── bilanciamento delle due lingue ──────────────────────────────────
+    # -- the two languages must stay balanced --------------------------
     it = len(re.findall(r'data-lang="it"', s))
     en = len(re.findall(r'data-lang="en"', s))
 
     if it != en:
-        errore(pagina, f"blocchi tradotti sbilanciati: it={it}, en={en}")
+        fail(page, f"unbalanced translated blocks: it={it}, en={en}")
 
-    # Ogni blocco inglese deve partire attivo: l'inglese e' la lingua
-    # predefinita, e senza "active" quel pezzo resta invisibile finche'
-    # il JavaScript non gira - cioe' per sempre, se e' disattivato.
+    # Every English block must start active: English is the default
+    # language, and without "active" that piece stays invisible until the
+    # JavaScript runs - i.e. forever, if it is disabled.
     for tag in re.findall(r'<[a-z]+[^>]*data-lang="en"[^>]*>', s):
         if "active" not in tag:
-            errore(pagina, f"blocco EN che non parte attivo: {tag[:80]}")
+            fail(page, f"EN block that does not start active: {tag[:80]}")
 
-    # ── segreti ─────────────────────────────────────────────────────────
-    for pattern in SEGRETI:
-        trovato = re.search(pattern, s, re.IGNORECASE)
-        if trovato:
-            errore(pagina, f"possibile segreto nel testo: {trovato.group(0)[:30]}")
+    # -- secrets -------------------------------------------------------
+    for pattern in SECRETS:
+        found = re.search(pattern, s, re.IGNORECASE)
+        if found:
+            fail(page, f"possible secret in the text: {found.group(0)[:30]}")
 
 
-# Le vocali accentate scritte con l'apostrofo: "e'" invece di "e",
-# "piu'" invece di "piu". Nei commenti del codice sorgente di questo
-# progetto e' la convenzione voluta; nel TESTO CHE LEGGE L'UTENTE e' un
-# errore di ortografia, e sono due cose che si confondono facilmente
-# lavorando sugli stessi file. Ne sono passate sette in una sola
-# modifica, incluse una nella <meta description> - che e' il testo che
-# Google mostra nei risultati - e un "c'e'" che un primo controllo piu'
-# ingenuo non aveva visto.
-ACCENTI_MANCATI = [
+# Italian accented vowels written with an apostrophe: "e'" instead of "è",
+# "piu'" instead of "più". In this project's source comments that is the
+# intended convention; in TEXT THE USER READS it is a spelling mistake,
+# and the two are easy to confuse while working on the same files. Seven
+# of them slipped through in a single change, including one inside the
+# <meta description> - the text Google shows in its results - and a
+# "c'e'" that a first, more naive version of this check did not see.
+MISSING_ACCENTS = [
     "e", "piu", "gia", "perche", "cosi", "puo", "meta", "sara",
     "verra", "potra", "dovra", "citta", "qualita", "possibilita",
-    "necessita", "cioe", "ventitre", "tre",
+    "necessita", "cioe", "ventitre", "tre", "li", "ne", "si",
 ]
 
 
-def controlla_accenti(pagina, s):
-    """Cerca l'apostrofo al posto dell'accento nel solo testo visibile."""
+def check_accents(page, s):
+    """Look for the apostrophe-instead-of-accent in visible text only."""
 
-    # Il testo italiano dei blocchi tradotti, piu' le meta - che si
-    # vedono nei risultati di ricerca e nelle anteprime dei link.
+    # The Italian text of the translated blocks, plus the meta tags -
+    # which show up in search results and link previews.
     #
-    # SI CHIUDE SUL NOME DEL TAG, non sul primo "</" che capita: la
-    # prima versione di questo controllo si fermava al </strong> dentro
-    # al paragrafo e non guardava il resto, dove infatti si nascondeva
-    # un "c'e'" che e' passato liscio.
-    pezzi = re.findall(
+    # IT CLOSES ON THE TAG NAME, not on the first "</" it meets: the
+    # first version of this check stopped at a </strong> inside the
+    # paragraph and never looked at the rest, where a "c'e'" was in fact
+    # hiding.
+    chunks = re.findall(
         r'<([a-z0-9]+)[^>]*data-lang="it"[^>]*>(.*?)</\1>', s, re.S)
-    pezzi = [testo for _tag, testo in pezzi]
-    pezzi += re.findall(r'<meta name="description" content="([^"]*)"', s)
+    chunks = [text for _tag, text in chunks]
+    chunks += re.findall(r'<meta name="description" content="([^"]*)"', s)
 
-    parole = "|".join(ACCENTI_MANCATI)
+    words = "|".join(MISSING_ACCENTS)
 
-    for pezzo in pezzi:
-        # Niente lookbehind su lettera: cosi' anche la seconda meta' di
-        # "c'e'" viene vista.
-        for trovato in re.findall(r"(?<![A-Za-z\u00c0-\u00ff])(" + parole + r")'", pezzo):
-            errore(pagina, f"accento scritto con l'apostrofo nel testo visibile: \"{trovato}'\"")
+    for chunk in chunks:
+        # No lookbehind on a letter: this way the second half of "c'e'"
+        # is seen too.
+        # Case-insensitive: an "E'" at the start of a sentence is exactly
+        # where the habit shows up, and the first version of this list
+        # only looked at lowercase.
+        for found in re.findall(r"(?<![A-Za-zÀ-ÿ])(" + words + r")'", chunk,
+                                re.IGNORECASE):
+            fail(page, f"accent written with an apostrophe in visible text: \"{found}'\"")
 
 
-# ── LE DUE ROADMAP NON DEVONO DIVERGERE ──────────────────────────────────
+def links_to(doc, target):
+    """True if `doc` contains a clickable markdown link to `target`.
+
+    It looks for the LINK, not for the file name: a first version of this
+    check searched for the plain string and passed happily, because the
+    other language's file name also appears in the file listing at the
+    bottom of the README - where it is not clickable and leads nowhere.
+    """
+    s = open(doc, encoding="utf-8").read()
+
+    return f"]({target})" in s
+
+
+# -- THE TWO ROADMAPS MUST NOT DIVERGE ---------------------------------
 #
-# La roadmap esiste in due file, uno per lingua, perche' i due pulsanti
-# sul sito portano a due documenti diversi. Due copie dello stesso
-# elenco divergono al primo taglio fatto da un lato solo - ed e' gia'
-# successo in questo repository: la sezione riassunta sulla home
-# annunciava fra le "prossime tre" una voce appena rimossa dal file.
+# The roadmap exists as two files, one per language, because the two
+# buttons on the site lead to two different documents. Two copies of the
+# same list diverge at the first cut made on one side only - and it has
+# already happened in this repository: the summary section on the home
+# page announced, among "the next three", an item just removed from the
+# file.
 #
-# Non si confronta il TESTO, che e' tradotto e quindi diverso per
-# definizione: si confronta la STRUTTURA. Se una voce viene aggiunta,
-# rimossa o spostata di sezione in una lingua sola, i conti non tornano
-# piu' e la CI se ne accorge.
-ROADMAP_IT = "ROADMAP.md"
-ROADMAP_EN = "ROADMAP.en.md"
+# It is not the TEXT that gets compared, which is translated and so
+# different by definition: it is the STRUCTURE. If an item is added,
+# removed or moved to another section in one language only, the counts
+# stop matching and CI notices.
+ROADMAP_IT = "ROADMAP.it.md"
+ROADMAP_EN = "ROADMAP.md"
 
 
-def struttura_roadmap(percorso):
-    s = open(percorso, encoding="utf-8").read()
+def roadmap_structure(path):
+    s = open(path, encoding="utf-8").read()
 
     return {
-        "sezioni": len(re.findall(r"^## ", s, re.M)),
-        "voci in arrivo": len(re.findall(r"^### \d+\. ", s, re.M)),
-        "voci fatte": len(re.findall(r"^- \[x\]", s, re.M)),
-        "voci sempre in corso": len(re.findall(r"^- \[ \]", s, re.M)),
+        "sections": len(re.findall(r"^## ", s, re.M)),
+        "upcoming items": len(re.findall(r"^### \d+\. ", s, re.M)),
+        "done items": len(re.findall(r"^- \[x\]", s, re.M)),
+        "ongoing items": len(re.findall(r"^- \[ \]", s, re.M)),
     }
 
 
-def controlla_roadmap():
+def check_roadmap():
 
-    for percorso in (ROADMAP_IT, ROADMAP_EN):
-        if not os.path.exists(percorso):
-            errore(percorso, "la roadmap non esiste")
+    for path in (ROADMAP_IT, ROADMAP_EN):
+        if not os.path.exists(path):
+            fail(path, "the roadmap does not exist")
             return
 
-    it = struttura_roadmap(ROADMAP_IT)
-    en = struttura_roadmap(ROADMAP_EN)
+    it = roadmap_structure(ROADMAP_IT)
+    en = roadmap_structure(ROADMAP_EN)
 
-    for chiave in it:
-        if it[chiave] != en[chiave]:
-            errore(ROADMAP_EN,
-                   f"{chiave}: {it[chiave]} in italiano, {en[chiave]} in inglese"
-                   " - una voce e' stata cambiata in una lingua sola")
+    for key in it:
+        if it[key] != en[key]:
+            fail(ROADMAP_EN,
+                 f"{key}: {it[key]} in Italian, {en[key]} in English"
+                 " - an item was changed in one language only")
 
-    # E si rimandano a vicenda: una traduzione che non si raggiunge
-    # dall'altra e' una traduzione che nessuno leggera'.
-    if ROADMAP_EN not in open(ROADMAP_IT, encoding="utf-8").read():
-        errore(ROADMAP_IT, f"non rimanda a {ROADMAP_EN}")
+    # And they must point at each other: a translation you cannot reach
+    # from the other one is a translation nobody will read.
+    if not links_to(ROADMAP_IT, ROADMAP_EN):
+        fail(ROADMAP_IT, f"does not link to {ROADMAP_EN}")
 
-    if ROADMAP_IT not in open(ROADMAP_EN, encoding="utf-8").read():
-        errore(ROADMAP_EN, f"non rimanda a {ROADMAP_IT}")
+    if not links_to(ROADMAP_EN, ROADMAP_IT):
+        fail(ROADMAP_EN, f"does not link to {ROADMAP_IT}")
 
 
-def controlla_condivisione():
-    """Le meta per le condivisioni, che si vedono solo incollando il link."""
+# The same trap as the roadmap, one level up: the README is the first
+# page a visitor sees, and it exists in two languages. English is the
+# default one (README.md) because this repository is meant to be read
+# from anywhere; the Italian one has to stay reachable from it, and the
+# other way round.
+README_IT = "README.it.md"
+README_EN = "README.md"
+
+
+def check_readme():
+
+    for path in (README_IT, README_EN):
+        if not os.path.exists(path):
+            fail(path, "the README does not exist")
+            return
+
+    if not links_to(README_EN, README_IT):
+        fail(README_EN, f"does not link to {README_IT}")
+
+    if not links_to(README_IT, README_EN):
+        fail(README_IT, f"does not link to {README_EN}")
+
+    # Each README must point at the roadmap in its own language: linking
+    # the other one sends the reader into a language they did not pick.
+    if not links_to(README_IT, ROADMAP_IT):
+        fail(README_IT, f"does not link to {ROADMAP_IT}")
+
+    if not links_to(README_EN, ROADMAP_EN):
+        fail(README_EN, f"does not link to {ROADMAP_EN}")
+
+
+# Files that must exist and be listed: a document referenced by the
+# README but absent from the repository is a 404 on the busiest page.
+LINKED_DOCS = ["SECURITY.md", "CODE_OF_CONDUCT.md", "LICENSE"]
+
+
+def check_markdown_links():
+    """Relative links between the markdown documents must resolve."""
+
+    docs = [README_EN, README_IT, ROADMAP_EN, ROADMAP_IT] + LINKED_DOCS
+
+    for doc in docs:
+        if not os.path.exists(doc):
+            fail(doc, "the file does not exist")
+            continue
+
+        if not doc.endswith(".md"):
+            continue
+
+        s = open(doc, encoding="utf-8").read()
+
+        for target in sorted(set(re.findall(r"\]\(([^)#:]+\.md)\)", s))):
+            if not os.path.exists(target):
+                fail(doc, f'the link "{target}" points at a file that does not exist')
+
+
+def check_sharing():
+    """The sharing meta tags, only visible when the link is pasted."""
 
     s = open("index.html", encoding="utf-8").read()
 
     for prop in ["og:title", "og:description", "og:image", "og:url"]:
         if f'property="{prop}"' not in s:
-            errore("index.html", f"manca la meta {prop}")
+            fail("index.html", f"missing the {prop} meta tag")
 
     m = re.search(r'property="og:image" content="([^"]+)"', s)
 
     if m:
-        nome = m.group(1).rsplit("/", 1)[-1]
+        name = m.group(1).rsplit("/", 1)[-1]
 
-        if not os.path.exists(nome):
-            errore("index.html", f"og:image punta a {nome}, che nel repository non c'e'")
+        if not os.path.exists(name):
+            fail("index.html", f"og:image points at {name}, which is not in the repository")
 
 
 def main():
 
     if not os.path.exists("index.html"):
-        print("Da lanciare dalla radice del repository.", file=sys.stderr)
+        print("Run this from the repository root.", file=sys.stderr)
         return 1
 
-    for pagina in PAGES:
-        controlla(pagina)
+    for page in PAGES:
+        check_page(page)
 
-        if os.path.exists(pagina):
-            controlla_accenti(pagina, open(pagina, encoding="utf-8").read())
+        if os.path.exists(page):
+            check_accents(page, open(page, encoding="utf-8").read())
 
-    controlla_condivisione()
-    controlla_roadmap()
+    check_sharing()
+    check_roadmap()
+    check_readme()
+    check_markdown_links()
 
-    if problemi:
-        print(f"\n{len(problemi)} problemi:\n")
-        for p in problemi:
+    if problems:
+        print(f"\n{len(problems)} problems:\n")
+        for p in problems:
             print(f"  ✗ {p}")
         print()
         return 1
 
-    print(f"✓ {len(PAGES)} pagine controllate, tutto a posto.")
+    print(f"✓ {len(PAGES)} pages checked, everything in place.")
     return 0
 
 

@@ -66,8 +66,8 @@
   a.cta[data-lang-block].active{display:inline-block;}
   footer p a[data-lang-block].active{display:inline;}
 
-  /* Pulsante secondario: la guida non deve competere con "scarica",
-     ma nemmeno sembrare una nota a pie' di pagina. */
+  /* Secondary button: the guide must not compete with "download",
+     but must not look like a footnote either. */
   .cta.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);}
   .cta.secondary:hover{background:rgba(91,141,239,.12);}
   .btn-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:1.5em;}
@@ -94,13 +94,13 @@
         color:var(--ink-muted);}
 
 
-  /* IL VIDEO NON SI CARICA DA SOLO, ED E' UNA SCELTA COERENTE.
-     Un iframe di YouTube presente all'apertura porta con se' i suoi
-     cookie e le sue richieste prima che l'utente abbia chiesto niente -
-     su una pagina il cui argomento e' "i tuoi dati non passano da
-     nessuna parte" sarebbe una contraddizione che si misura con gli
-     strumenti per sviluppatori. Qui si vede la miniatura; l'iframe
-     nasce al primo clic. */
+  /* THE VIDEO DOES NOT LOAD BY ITSELF, AND THAT IS A CONSISTENT CHOICE.
+     A YouTube iframe present at page load brings its own cookies and
+     its own requests before the visitor has asked for anything - on a
+     page whose whole point is "your data goes nowhere" that would be a
+     contradiction anyone can measure with the developer tools. What
+     you see here is the thumbnail; the iframe is born on the first
+     click. */
   .video{position:relative;margin:2em 0 0;border-radius:14px;overflow:hidden;
          border:1px solid var(--line);background:#000;aspect-ratio:16/9;}
   .video img{width:100%;height:100%;object-fit:cover;display:block;
@@ -120,9 +120,9 @@
                  text-align:center;}
 
 
-  /* La roadmap sulla home resta un ASSAGGIO, non la copia del documento:
-     chi vuole i dettagli segue il link. Una landing page che contiene
-     tutto non fa leggere niente. */
+  /* The roadmap on the home page stays a TASTE of it, not a copy of the
+     document: whoever wants the details follows the link. A landing
+     page that contains everything gets nothing read. */
   .next{list-style:none;padding:0;margin:0;}
   .next li{padding:12px 0;border-bottom:1px solid var(--line);}
   .next li:last-child{border-bottom:0;}
@@ -159,7 +159,7 @@
 <p data-lang-block data-lang="it">ScreenSpan non duplica un'app: estende il suo schermo su più telefoni, come se fosse un unico telefono pieghevole aperto. Ogni telefono mostra una porzione — insieme formano uno schermo più grande. E non si guarda soltanto: puoi toccare, trascinare e scrivere anche dagli altri telefoni, come se fossero un'unica superficie.</p>
 <p data-lang-block data-lang="en" class="active">ScreenSpan doesn't duplicate an app: it extends its screen across several phones, like an open foldable made of separate devices. Each phone shows one portion — together they form one larger screen. And it's not just for looking: you can tap, drag and type from the other phones too, as if they were a single surface.</p>
 
-<!-- Illustrazione: due telefoni che diventano uno schermo unito, stesso concetto usato nel carosello dell'app -->
+<!-- Illustration: two phones becoming one joined screen, the same idea used in the app's carousel -->
 <svg class="hero-illustration" width="360" height="220" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
   <rect x="30" y="20" width="130" height="180" rx="18" fill="#0F172A" stroke="#475569" stroke-width="4"/>
   <rect x="46" y="34" width="98" height="152" rx="8" fill="#1E293B"/>
@@ -301,14 +301,14 @@
 <p class="ongoing active" data-lang-block data-lang="en">And one thing that never ends: <strong>keeping up with new Android versions and new phones</strong>. The direct link is the part each manufacturer implements its own way, so every model tested is one less model that behaves unexpectedly.</p>
 
 <!--
-  I DUE PULSANTI PORTANO A DUE DOCUMENTI DIVERSI.
-  Erano gia' due elementi separati - uno per lingua, come tutto il
-  resto della pagina - quindi far arrivare chi legge in inglese alla
-  roadmap inglese e' costato cambiare un href, non aggiungere codice.
+  THE TWO BUTTONS LEAD TO TWO DIFFERENT DOCUMENTS.
+  They were already two separate elements - one per language, like the
+  rest of the page - so sending an English reader to the English
+  roadmap cost one changed href, not any added code.
 -->
 <div class="btn-row">
-  <a class="cta secondary" data-lang-block data-lang="it" href="https://github.com/Laerte1989/screenspan-app/blob/main/ROADMAP.md">Roadmap completa</a>
-  <a class="cta secondary active" data-lang-block data-lang="en" href="https://github.com/Laerte1989/screenspan-app/blob/main/ROADMAP.en.md">Full roadmap</a>
+  <a class="cta secondary" data-lang-block data-lang="it" href="https://github.com/Laerte1989/screenspan-app/blob/main/ROADMAP.it.md">Roadmap completa</a>
+  <a class="cta secondary active" data-lang-block data-lang="en" href="https://github.com/Laerte1989/screenspan-app/blob/main/ROADMAP.md">Full roadmap</a>
 </div>
 
 <h2 data-lang-block data-lang="it">Privacy, in parole semplici</h2>
@@ -380,9 +380,9 @@
 
     var f = document.createElement('iframe');
 
-    // youtube-nocookie e non youtube.com: anche dopo il clic, il minimo
-    // indispensabile. autoplay perche' il clic ERA la richiesta di
-    // guardarlo, e chiederglielo due volte e' solo un secondo clic.
+    // youtube-nocookie and not youtube.com: even after the click, the
+    // bare minimum. autoplay because the click WAS the request to watch
+    // it, and asking twice is just a second click.
     f.src = 'https://www.youtube-nocookie.com/embed/wRQ2Bynujss?autoplay=1&rel=0';
     f.title = 'ScreenSpan demo';
     f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';

@@ -1,15 +1,14 @@
-# Le due voci qui sotto compaiono accanto ai moduli. La prima esiste
-# perche' la maggior parte delle "segnalazioni" sull'accoppiamento sono
-# in realta' un passo saltato, e la guida le risolve in meno tempo di
-# quanto serva a scrivere una issue.
+# The two entries below show up next to the forms. The first one exists
+# because most pairing "bug reports" are in fact a skipped step, and the
+# guide solves them in less time than it takes to write an issue.
 blank_issues_enabled: false
 contact_links:
-  - name: 📖 Guida all'accoppiamento / Pairing guide
+  - name: 📖 Pairing guide / Guida all'accoppiamento
     url: https://laerte1989.github.io/screenspan-app/guide.html
-    about: I sette passi fotografati. Se il problema e' l'accoppiamento, la risposta e' quasi sempre qui.
-  - name: 🔒 Vulnerabilita' di sicurezza / Security vulnerability
+    about: The seven steps, photographed. If pairing is the problem, the answer is almost always here. / I sette passi fotografati. Se il problema è l'accoppiamento, la risposta è quasi sempre qui.
+  - name: 🔒 Security vulnerability / Vulnerabilità di sicurezza
     url: https://github.com/Laerte1989/screenspan-app/blob/main/SECURITY.md
-    about: NON aprire una issue pubblica. Si segnala per email, vedi SECURITY.md.
-  - name: ✉️ Scrivimi / Email me
+    about: Do NOT open a public issue. Report it by email, see SECURITY.md. / NON aprire una issue pubblica. Si segnala per email, vedi SECURITY.md.
+  - name: ✉️ Email me / Scrivimi
     url: mailto:laerte.developer@gmail.com
-    about: Per tutto quello che non e' un problema tecnico ne' una proposta.
+    about: For anything that is neither a technical problem nor a proposal. / Per tutto quello che non è un problema tecnico né una proposta.

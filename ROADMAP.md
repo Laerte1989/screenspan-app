@@ -1,139 +1,141 @@
 # Roadmap
 
-Dove è arrivato ScreenSpan e dove sta andando.
+Where ScreenSpan has got to, and where it is going.
 
-*🇬🇧 [English version](ROADMAP.en.md) · Sono intenzioni in ordine di
-priorità, non date: l'unica cosa con una data è la scadenza tecnica
-imposta da Android (vedi «Sempre in corso»).*
-
----
-
-## ✅ Fatto
-
-Tutto quello che è già nell'app pubblicata.
-
-- [x] **Schermo unito su più telefoni**
-      Un'app scelta dall'utente gira su uno schermo più grande di quello
-      del telefono, e la parte che non ci sta la mostrano gli altri.
-- [x] **Tocco e scrittura da ogni telefono**
-      Tocchi, trascinamenti, gesti a due dita, testo e tasto Indietro:
-      partono da qualunque telefono e arrivano sull'app condivisa.
-- [x] **Collegamento diretto fra i telefoni**
-      Wi-Fi Direct con annuncio e ricerca automatica: nessun router,
-      nessuna rete in comune, e le immagini non passano da internet.
-- [x] **Due disposizioni**
-      Telefoni affiancati (in verticale) o impilati (in orizzontale),
-      con la disposizione decisa dal telefono che condivide e annunciata
-      all'altro.
-- [x] **Preparazione una volta sola**
-      Circa due minuti sul solo telefono che condivide, con procedura
-      guidata schermata per schermata e
-      [guida illustrata](https://laerte1989.github.io/screenspan-app/guide.html).
-      Resta fatta dopo riavvii e reinstallazioni.
-- [x] **Qualità regolabile a caldo**
-      Fotogrammi al secondo e nitidezza si cambiano mentre si condivide,
-      con il massimo misurato sul telefono invece che indovinato.
-- [x] **Prova gratuita e abbonamento**
-      15 minuti al giorno per provarla, abbonamento annuale per l'uso
-      quotidiano, e chi guarda non paga mai.
-- [x] **Riprese automatiche dai guasti**
-      Il decoder si ricostruisce da solo, la ricerca riparte, e
-      l'autorizzazione si rifà quando il telefono smette di fidarsi
-      della chiave già accoppiata.
+*🇮🇹 [Versione italiana](ROADMAP.it.md) · These are intentions in order of
+priority, not dates: the only thing here with a date is the technical
+deadline Android imposes (see «Ongoing»).*
 
 ---
 
-## 🎯 In arrivo
+## ✅ Done
 
-In ordine di quanto cambiano l'esperienza, non di quanto sono facili.
+Everything already in the published app.
 
-### 1. Disposizione a puzzle
-
-Oggi i telefoni possono stare solo tutti in verticale affiancati o tutti
-in orizzontale impilati. La disposizione **mista** è la richiesta più
-naturale: due telefoni in verticale accanto a uno in orizzontale, una L,
-una griglia 2×2 con un telefono ruotato.
-
-Sono due lavori che vanno insieme, perché uno senza l'altro non serve:
-
-- il telefono che condivide deve poter costruire uno schermo di forma
-  qualunque e assegnare a ciascun telefono un rettangolo qualunque, non
-  più una fetta uguale alle altre;
-- serve una **schermata dove trascinare i telefoni** al posto in cui
-  stanno davvero sul tavolo. Senza quella, una disposizione libera
-  diventa impossibile da spiegare.
-
-È il punto dove ScreenSpan mantiene la promessa fino in fondo: **il
-telefono pieghevole te lo costruisci tu**, della forma che ti serve in
-quel momento, con i telefoni che hai già in casa.
-
-### 2. La guida per il telefono che hai
-
-La guida all'accoppiamento è fotografata su un realme, e il testo stesso
-deve avvisare che «su altri telefoni può chiamarsi diversamente». È il
-punto in cui si perdono più persone: chi non trova la voce con quel nome
-si fermerà lì.
-
-Una versione per marca — Samsung, Xiaomi, Pixel, Huawei, Motorola — con
-i nomi veri di quelle voci e gli screenshot di quei telefoni. Non è
-codice: è la cosa che più farebbe arrivare in fondo chi ha installato.
-
-### 3. Appunti condivisi
-
-Copiare su un telefono e incollare sull'altro, dato che i due sono già
-collegati e già si scambiano il testo digitato.
-
-### 4. Tablet e Android TV come schermo
-
-Un tablet come telefono che guarda dà molto più spazio di un telefono, e
-non richiede niente che non ci sia già. Va però verificato sul serio
-come si comporta sugli schermi grandi — vedi la scadenza di
-`targetSdk 37` in «Sempre in corso».
+- [x] **One screen across several phones**
+      An app you choose runs on a screen larger than the phone's own, and
+      the part that does not fit is shown by the other phones.
+- [x] **Touch and typing from every phone**
+      Taps, drags, two-finger gestures, text and the Back button: they
+      start on any phone and land on the shared app.
+- [x] **A direct link between the phones**
+      Wi-Fi Direct with automatic advertising and discovery: no router,
+      no shared network, and the images never travel over the internet.
+- [x] **Two arrangements**
+      Phones side by side (upright) or stacked (sideways), with the
+      arrangement decided by the sharing phone and announced to the
+      other.
+- [x] **Setup done once**
+      About two minutes on the sharing phone only, walked through screen
+      by screen, with an
+      [illustrated guide](https://laerte1989.github.io/screenspan-app/guide.html).
+      It stays done across restarts and reinstalls.
+- [x] **Quality adjustable while sharing**
+      Frames per second and sharpness change mid-session, with the
+      maximum measured on the phone rather than guessed.
+- [x] **Free trial and subscription**
+      15 minutes a day to try it, a yearly subscription for everyday
+      use, and whoever watches never pays.
+- [x] **Automatic recovery**
+      The decoder rebuilds itself, discovery restarts on its own, and the
+      authorisation is redone when the phone stops trusting the key it
+      already paired.
 
 ---
 
-## 🔄 Sempre in corso
+## 🎯 Next
 
-Non finisce mai, e vale la pena metterlo per iscritto.
+In order of how much they change the experience, not of how easy they
+are.
 
-- [ ] **Nuove versioni di Android**
-      Ogni versione cambia qualcosa proprio dove ScreenSpan lavora:
-      permessi, servizi in primo piano, gestione degli schermi. La
-      scadenza già nota e datata è **`targetSdk 37`**, quando Android
-      smetterà di rispettare l'orientamento richiesto dalle app sugli
-      schermi grandi: entro allora il telefono che guarda deve adattarsi
-      alla forma che riceve invece di pretenderne una.
-- [ ] **Nuovi telefoni**
-      Il Wi-Fi Direct è la parte che ogni produttore implementa a modo
-      suo, e quasi ogni difetto vero di quest'app viene da lì. Ogni
-      modello provato è un modello in meno che si comporta a sorpresa.
-- [ ] **Prove su telefoni veri, non solo compilazione**
-      L'ultima regressione seria è stata trovata solo mettendo due
-      telefoni sul tavolo, e nessun test automatico l'avrebbe vista.
-      Dopo ogni modifica al collegamento fra i telefoni, si riprova
-      sull'hardware.
+### 1. Puzzle layout
+
+Today the phones can only all be upright side by side, or all sideways
+stacked. A **mixed** arrangement is the most natural request: two
+upright phones next to one sideways, an L shape, a 2×2 grid with one
+phone rotated.
+
+These are two pieces of work that go together, because neither is any
+use without the other:
+
+- the sharing phone must be able to build a screen of any shape and
+  assign each phone any rectangle, instead of one equal slice each;
+- there needs to be a **screen where you drag the phones** into the
+  position they actually occupy on the table. Without it, a free
+  arrangement becomes impossible to explain.
+
+This is where ScreenSpan keeps its promise all the way: **you build the
+foldable yourself**, in whatever shape you need at that moment, out of
+the phones you already have at home.
+
+### 2. A guide for the phone you own
+
+The setup guide is photographed on a realme, and its own text has to
+warn that "other phones may call it something else". This is where most
+people are lost: whoever cannot find the item under that name will stop
+right there.
+
+A version per brand — Samsung, Xiaomi, Pixel, Huawei, Motorola — with
+the real names those phones use and screenshots taken on them. It is not
+code: it is the single thing that would most help the people who already
+installed the app get to the end.
+
+### 3. Shared clipboard
+
+Copy on one phone and paste on the other, given that the two are already
+connected and already exchange the text you type.
+
+### 4. Tablet and Android TV as a display
+
+A tablet as the watching device gives far more room than a phone, and
+needs nothing that is not already there. How it behaves on large screens
+does need proper testing, though — see the `targetSdk 37` deadline under
+«Ongoing».
 
 ---
 
-## 🚫 Non in programma
+## 🔄 Ongoing
 
-Dirlo evita che venga richiesto tre volte.
+It never ends, and it is worth putting in writing.
 
-- **Collegamento su rete Wi-Fi normale.** Il Wi-Fi Direct è l'unico
-  trasporto per scelta: funziona anche dove non c'è nessuna rete, e non
-  fa passare le immagini per un router che non controlliamo.
-- **iPhone.** iOS non offre nulla di equivalente: né il collegamento
-  diretto usato qui, né la possibilità di creare uno schermo aggiuntivo
-  per un'app. Non è una questione di tempo, è che non si può.
-- **Root o modifiche al sistema.** L'autorizzazione che ScreenSpan usa è
-  una funzione standard di Android, revocabile in qualunque momento. Non
-  si andrà oltre.
+- [ ] **New Android versions**
+      Every release changes something exactly where ScreenSpan works:
+      permissions, foreground services, display handling. The deadline
+      already known and dated is **`targetSdk 37`**, when Android will
+      stop honouring the orientation an app asks for on large screens:
+      by then the watching phone must adapt to the shape it receives
+      instead of demanding one.
+- [ ] **New phones**
+      Wi-Fi Direct is the part every manufacturer implements its own
+      way, and nearly every real defect in this app comes from there.
+      Every model tested is one less model that behaves unexpectedly.
+- [ ] **Testing on real phones, not just compiling**
+      The last serious regression was found only by putting two phones on
+      a table, and no automated test would have caught it. After every
+      change to the link between the phones, it gets tried on the
+      hardware again.
 
 ---
 
-## Hai un'idea?
+## 🚫 Not planned
 
-Le [Issues](https://github.com/Laerte1989/screenspan-app/issues) sono
-aperte, e c'è un modulo pronto per le proposte. La cosa più utile che
-puoi scrivere non è la soluzione: è **cosa stavi provando a fare** e
-cosa te lo ha impedito.
+Saying so avoids being asked three times.
+
+- **Connecting over an ordinary Wi-Fi network.** Wi-Fi Direct is the
+  only transport by choice: it works where there is no network at all,
+  and it does not route the images through a router we do not control.
+- **iPhone.** iOS offers nothing equivalent: neither the direct link
+  used here, nor the ability to create an extra screen for an app. It is
+  not a matter of time — it cannot be done.
+- **Root or system modifications.** The authorisation ScreenSpan uses is
+  a standard Android feature, revocable at any time. It will not go
+  further than that.
+
+---
+
+## Got an idea?
+
+The [Issues](https://github.com/Laerte1989/screenspan-app/issues) are
+open, and there is a form ready for proposals. The most useful thing you
+can write is not the solution: it is **what you were trying to do** and
+what stopped you.

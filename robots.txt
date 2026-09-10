@@ -1,4 +1,4 @@
-# Il sito e' una vetrina: si vuole che venga indicizzato tutto.
+# The site is a showcase: everything here is meant to be indexed.
 User-agent: *
 Allow: /
 

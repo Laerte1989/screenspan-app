@@ -1,83 +1,86 @@
-name: 🐞 Problema con l'app / App problem
-description: Qualcosa non funziona come dovrebbe / Something does not work as it should
-title: "[Problema] "
+name: 🐞 App problem / Problema con l'app
+description: Something does not work as it should / Qualcosa non funziona come dovrebbe
+title: "[Bug] "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Grazie per il tempo che ci stai mettendo. Le due cose che servono
-        piu' di tutte sono **il modello dei telefoni** e **la versione di
-        Android**: quasi tutti i problemi di questa app dipendono da come
-        un produttore ha implementato il Wi-Fi Direct, quindi senza quei
-        due dati non c'e' modo di riprodurre niente.
-
-        *Thanks for taking the time. The two things that matter most are
+        Thanks for taking the time. The two things that matter most are
         the **phone models** and the **Android versions**: almost every
         problem in this app depends on how a manufacturer implemented
         Wi-Fi Direct, so without those two there is no way to reproduce
-        anything.*
+        anything.
+
+        You can write in English or Italian — whichever you prefer.
+
+        *Grazie per il tempo che ci stai mettendo. Le due cose che
+        servono più di tutte sono **il modello dei telefoni** e **la
+        versione di Android**: quasi tutti i problemi di questa app
+        dipendono da come un produttore ha implementato il Wi-Fi Direct,
+        quindi senza quei due dati non c'è modo di riprodurre niente.
+        Scrivi in italiano o in inglese, come preferisci.*
 
   - type: textarea
-    id: cosa
+    id: what-happens
     attributes:
-      label: Cosa succede / What happens
-      description: In una o due frasi, e cosa ti aspettavi invece. / In a sentence or two, and what you expected instead.
+      label: What happens / Cosa succede
+      description: In a sentence or two, and what you expected instead. / In una o due frasi, e cosa ti aspettavi invece.
     validations:
       required: true
 
   - type: dropdown
-    id: quando
+    id: when
     attributes:
-      label: In quale momento / At which point
+      label: At which point / In quale momento
       options:
-        - Durante l'accoppiamento iniziale / During the one-time pairing
-        - I due telefoni non si trovano / The two phones do not find each other
-        - Si collegano ma l'immagine non arriva / They connect but no picture arrives
-        - L'immagine arriva ma e' scattosa o distorta / Picture arrives but is choppy or distorted
-        - I tocchi non funzionano o finiscono nel punto sbagliato / Touches do not work or land in the wrong place
-        - Il conteggio dei minuti / The minute count
-        - L'abbonamento / The subscription
-        - Altro / Other
+        - During the one-time pairing / Durante l'accoppiamento iniziale
+        - The two phones do not find each other / I due telefoni non si trovano
+        - They connect but no picture arrives / Si collegano ma l'immagine non arriva
+        - Picture arrives but is choppy or distorted / L'immagine arriva ma è scattosa o distorta
+        - Touches do not work or land in the wrong place / I tocchi non funzionano o finiscono nel punto sbagliato
+        - The minute count / Il conteggio dei minuti
+        - The subscription / L'abbonamento
+        - Other / Altro
     validations:
       required: true
 
   - type: input
-    id: sorgente
+    id: sharing-phone
     attributes:
-      label: Telefono che CONDIVIDE / SHARING phone
-      description: Modello e versione di Android / Model and Android version
-      placeholder: "es. realme 14 Pro+ 5G, Android 16"
+      label: SHARING phone / Telefono che CONDIVIDE
+      description: Model and Android version / Modello e versione di Android
+      placeholder: "e.g. realme 14 Pro+ 5G, Android 16"
     validations:
       required: true
 
   - type: input
-    id: ricevitore
+    id: watching-phone
     attributes:
-      label: Telefono che GUARDA / WATCHING phone
-      description: Modello e versione di Android / Model and Android version
-      placeholder: "es. Huawei P9, Android 7"
+      label: WATCHING phone / Telefono che GUARDA
+      description: Model and Android version / Modello e versione di Android
+      placeholder: "e.g. Huawei P9, Android 7"
     validations:
       required: true
 
   - type: input
-    id: versione
+    id: app-version
     attributes:
-      label: Versione di ScreenSpan
-      description: La trovi in fondo alla schermata principale dell'app. / At the bottom of the app's main screen.
-      placeholder: "es. 1.5"
+      label: ScreenSpan version / Versione di ScreenSpan
+      description: At the bottom of the app's main screen. / La trovi in fondo alla schermata principale dell'app.
+      placeholder: "e.g. 1.5"
 
   - type: textarea
-    id: passi
+    id: steps
     attributes:
-      label: Come si riproduce / How to reproduce
-      description: I passaggi nell'ordine, dall'apertura dell'app. / The steps in order, starting from opening the app.
+      label: How to reproduce / Come si riproduce
+      description: The steps in order, starting from opening the app. / I passaggi nell'ordine, dall'apertura dell'app.
       placeholder: |
-        1. Apro l'app sul telefono A e scelgo "Sorgente"
+        1. I open the app on phone A and pick "Source"
         2. ...
 
   - type: textarea
-    id: extra
+    id: anything-else
     attributes:
-      label: Altro / Anything else
-      description: Foto o un breve video aiutano piu' di qualunque descrizione. Trascinali qui. / Photos or a short video help more than any description. Drag them here.
+      label: Anything else / Altro
+      description: Photos or a short video help more than any description. Drag them here. / Foto o un breve video aiutano più di qualunque descrizione. Trascinali qui.

@@ -2,104 +2,104 @@
 
 # ScreenSpan
 
-**Un telefono pieghevole fatto con i telefoni che hai già.**
-*A foldable phone made from the phones you already have.*
+**A foldable phone made from the phones you already have.**
 
-[![Google Play](https://img.shields.io/badge/Google%20Play-Scarica-0F9D58?logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=olmelli.ing.technology.screenspan)
-[![Sito](https://img.shields.io/badge/Sito-laerte1989.github.io-5B8DEF)](https://laerte1989.github.io/screenspan-app/)
-[![Guida](https://img.shields.io/badge/Guida-illustrata-8B5CF6)](https://laerte1989.github.io/screenspan-app/guide.html)
-[![Android](https://img.shields.io/badge/Android-7.0%2B-3DDC84?logo=android&logoColor=white)](#requisiti)
+**English** · [Italiano](README.it.md)
 
-[**▶ Guarda la demo**](https://youtu.be/wRQ2Bynujss) · [Sito](https://laerte1989.github.io/screenspan-app/) · [Guida](https://laerte1989.github.io/screenspan-app/guide.html) · [Roadmap](ROADMAP.md) · [Roadmap EN](ROADMAP.en.md) · [Privacy](https://laerte1989.github.io/screenspan-app/privacy.html)
+[![Google Play](https://img.shields.io/badge/Google%20Play-Download-0F9D58?logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=olmelli.ing.technology.screenspan)
+[![Website](https://img.shields.io/badge/Website-laerte1989.github.io-5B8DEF)](https://laerte1989.github.io/screenspan-app/)
+[![Guide](https://img.shields.io/badge/Guide-illustrated-8B5CF6)](https://laerte1989.github.io/screenspan-app/guide.html)
+[![Android](https://img.shields.io/badge/Android-7.0%2B-3DDC84?logo=android&logoColor=white)](#requirements)
+
+[**▶ Watch the demo**](https://youtu.be/wRQ2Bynujss) · [Website](https://laerte1989.github.io/screenspan-app/) · [Guide](https://laerte1989.github.io/screenspan-app/guide.html) · [Roadmap](ROADMAP.md) · [Privacy](https://laerte1989.github.io/screenspan-app/privacy.html)
 
 </div>
 
 ---
 
-ScreenSpan non duplica un'app: ne **estende** lo schermo su più telefoni,
-come un pieghevole fatto di dispositivi separati. Ogni telefono mostra una
-porzione, e insieme formano uno schermo più grande. E non si guarda
-soltanto: puoi toccare, trascinare e scrivere anche dagli altri telefoni,
-come se fossero un'unica superficie.
+ScreenSpan doesn't duplicate an app: it **extends** its screen across
+several phones, like an open foldable made of separate devices. Each
+phone shows one portion, and together they form one larger screen. And
+it isn't just for looking: you can tap, drag and type from the other
+phones too, as if they were a single surface.
 
-> *ScreenSpan doesn't duplicate an app: it **extends** its screen across
-> several phones, like an open foldable made of separate devices. Each phone
-> shows one portion — together they form one larger screen. And it's not
-> just for looking: you can tap, drag and type from the other phones too.*
-
-## Come funziona
+## How it works
 
 | | |
 |---|---|
-| **Sorgente** | Il telefono che condivide. Fa girare l'app scelta e ne estende lo schermo agli altri. |
-| **Display secondario** | Il telefono che guarda. Riceve e mostra la sua porzione — nessuna configurazione, nessun accesso. |
-| **Collegamento** | Wi-Fi Direct, da telefono a telefono. Nessuna rete Wi-Fi in comune, nessun router, nessun cavo. |
+| **Source** | The phone in charge. You pick the app to widen, and it opens on a screen bigger than the one in your hand. |
+| **Secondary display** | The phone that completes the screen. It shows its part, and on that part you tap, drag and type as on the original. |
+| **The link** | Wi-Fi Direct, phone to phone. No shared Wi-Fi network, no router, no cable. |
 
-Quello che appare sullo schermo condiviso **non passa da internet e non
-passa da alcun server**: viaggia solo fra i telefoni coinvolti, sul
-collegamento diretto che creano fra loro.
+What appears on the shared screen **never travels over the internet and
+never through any server of ours**: it goes only between the phones
+involved, over the direct link they create between themselves.
 
-## Requisiti
+## Requirements
 
-- **Telefono che condivide:** Android 11 o più recente, più un
-  accoppiamento iniziale di circa due minuti — una volta sola nella vita
-  del telefono. La [guida illustrata](https://laerte1989.github.io/screenspan-app/guide.html)
-  ha la fotografia di ogni schermata.
-- **Telefono che guarda:** Android 7 o più recente. Niente da configurare.
-- **Quanti telefoni:** lo decide il telefono che condivide — è lui a
-  costruire lo schermo unito, e il massimo cambia da modello a modello.
-  L'app misura cosa il tuo regge e ti lascia scegliere fin lì.
+- **Sharing phone:** Android 11 or newer, plus about two minutes of
+  setup — once in the phone's lifetime. The
+  [illustrated guide](https://laerte1989.github.io/screenspan-app/guide.html)
+  has a photo of every screen.
+- **Watching phone:** Android 7 or newer. Nothing to set up.
+- **How many phones:** the sharing phone decides — it is the one
+  building the merged screen, and the maximum varies from model to
+  model. The app measures what yours sustains and lets you choose up to
+  that.
 
-## Quanto costa
+## Pricing
 
-**Puoi provarla gratis, e la prova serve a decidere.** Chi condivide ha
-**15 minuti al giorno**, rinnovati ogni mezzanotte: bastano per collegare i
-telefoni, vedere l'effetto e capire se ti torna utile — non per usarla
-tutti i giorni, e non fingiamo il contrario. Chi la trova utile passa
-all'**abbonamento annuale**, e il limite giornaliero non c'è più.
+**You can try it for free, and the trial is there to help you decide.**
+Whoever shares gets **15 minutes a day**, renewed every midnight: enough
+to connect the phones, see the effect and work out whether it is useful
+to you — not enough to use it every day, and we are not pretending
+otherwise. Whoever finds it useful moves to the **yearly subscription**,
+and the daily limit is gone.
 
-Chi guarda non paga mai e non ha limiti di tempo, con o senza abbonamento.
-Nessuna pubblicità, né nella prova né dopo.
+Whoever watches never pays and has no time limit, subscription or not.
+No ads, neither during the trial nor after.
 
 ## Privacy
 
-Nessuna pubblicità, nessuno strumento di analisi o tracciamento. Il
-contenuto dello schermo condiviso non lo vediamo, perché non ci arriva mai.
-[Informativa completa →](https://laerte1989.github.io/screenspan-app/privacy.html)
+No ads, no analytics or tracking tools. We never see the content of the
+shared screen, because it never reaches us.
+[Full policy →](https://laerte1989.github.io/screenspan-app/privacy.html)
 
-## Dove sta andando
+## Where it's going
 
-La [**Roadmap**](ROADMAP.md) elenca quello che c'è già, quello che
-arriverà in ordine di priorità — disposizione a puzzle con telefoni
-misti, guida all'accoppiamento per marca di telefono — e anche
-quello che **non** è in programma, così nessuno lo chiede tre volte.
+The [**Roadmap**](ROADMAP.md) lists what is already there, what is
+coming in order of priority — puzzle layout with mixed phones, a setup
+guide per phone brand — and also what is **not** planned, so nobody asks
+for it three times.
 
-*Also available in [English](ROADMAP.en.md).*
+*Disponibile anche in [italiano](ROADMAP.it.md).*
 
-## Segnalazioni e richieste
+## Reports and requests
 
-Le [Issues](../../issues) di questo repository sono il posto giusto per
-**segnalare un problema con l'app** o **proporre una funzione**: ci sono
-due moduli pronti che chiedono le informazioni che servono davvero
-(modello del telefono e versione di Android, prima di tutto).
+The [Issues](../../issues) of this repository are the right place to
+**report a problem with the app** or **propose a feature**: there are two
+ready forms asking for the information that actually matters (phone
+model and Android version, first of all).
 
-Per una **vulnerabilità di sicurezza**, non aprire una issue pubblica:
-vedi [SECURITY.md](SECURITY.md).
+For a **security vulnerability**, do not open a public issue: see
+[SECURITY.md](SECURITY.md).
 
-## Questo repository
+## This repository
 
-Contiene **soltanto il sito di presentazione** — la pagina, la guida
-illustrata e l'informativa privacy. Il codice sorgente di ScreenSpan non è
-qui e non è pubblico.
+It contains **only the presentation website** — the page, the illustrated
+guide and the privacy policy. ScreenSpan's source code is not here and is
+not public.
 
 ```
-index.html        presentazione: demo, casi d'uso, requisiti, prezzo, FAQ
-guide.html        accoppiamento in sette passi, fotografati su un telefono vero
-privacy.html      informativa privacy
-og-image.jpg      immagine di anteprima per le condivisioni
-ROADMAP.md        fatto, in arrivo, e cosa non e' in programma
-ROADMAP.en.md     la stessa roadmap in inglese
-tools/            i controlli che girano in CI su queste pagine
+README.md         this file
+README.it.md      the same file, in Italian
+index.html        presentation: demo, use cases, requirements, pricing, FAQ
+guide.html        setup in seven steps, photographed on a real phone
+privacy.html      privacy policy
+og-image.jpg      preview image for link sharing
+ROADMAP.md        done, next, and what is not planned
+ROADMAP.it.md     the same roadmap, in Italian
+tools/            the checks that run in CI against these pages
 ```
 
 ---

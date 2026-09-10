@@ -1,41 +1,43 @@
-name: 💡 Proposta / Idea
-description: Un'idea per rendere ScreenSpan piu' utile / An idea to make ScreenSpan more useful
-title: "[Proposta] "
+name: 💡 Idea / Proposta
+description: An idea to make ScreenSpan more useful / Un'idea per rendere ScreenSpan più utile
+title: "[Idea] "
 labels: ["idea"]
 body:
   - type: markdown
     attributes:
       value: |
-        Le proposte migliori partono dal **problema**, non dalla
-        soluzione: sapere cosa stavi cercando di fare lascia aperta la
-        possibilita' che esista una strada migliore di quella che avevi
-        in mente.
+        The best ideas start from the **problem**, not the solution:
+        knowing what you were trying to do leaves room for a better
+        route than the one you had in mind.
 
-        *The best ideas start from the **problem**, not the solution:
-        knowing what you were trying to do leaves room for a better route
-        than the one you had in mind.*
+        You can write in English or Italian — whichever you prefer.
+
+        *Le proposte migliori partono dal **problema**, non dalla
+        soluzione: sapere cosa stavi cercando di fare lascia aperta la
+        possibilità che esista una strada migliore di quella che avevi
+        in mente. Scrivi in italiano o in inglese, come preferisci.*
 
   - type: textarea
-    id: problema
+    id: problem
     attributes:
-      label: Cosa stavi provando a fare / What were you trying to do
-      description: E cosa te lo ha impedito. / And what stopped you.
+      label: What were you trying to do / Cosa stavi provando a fare
+      description: And what stopped you. / E cosa te lo ha impedito.
     validations:
       required: true
 
   - type: textarea
     id: idea
     attributes:
-      label: Come lo risolveresti / How you would solve it
-      description: Se hai un'idea precisa. Se no, va bene lasciare vuoto. / If you have something specific in mind. Leaving this empty is fine.
+      label: How you would solve it / Come lo risolveresti
+      description: If you have something specific in mind. Leaving this empty is fine. / Se hai un'idea precisa. Se no, va bene lasciare vuoto.
 
   - type: dropdown
-    id: ruolo
+    id: concerns
     attributes:
-      label: Riguarda / It concerns
+      label: It concerns / Riguarda
       options:
-        - Il telefono che condivide / The sharing phone
-        - Il telefono che guarda / The watching phone
-        - Entrambi / Both
-        - L'accoppiamento iniziale / The one-time pairing
-        - Altro / Other
+        - The sharing phone / Il telefono che condivide
+        - The watching phone / Il telefono che guarda
+        - Both / Entrambi
+        - The one-time pairing / L'accoppiamento iniziale
+        - Other / Altro
