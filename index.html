@@ -119,6 +119,18 @@
   .video-caption{color:var(--ink-muted);font-size:.92em;margin:.7em 0 0;
                  text-align:center;}
 
+
+  /* La roadmap sulla home resta un ASSAGGIO, non la copia del documento:
+     chi vuole i dettagli segue il link. Una landing page che contiene
+     tutto non fa leggere niente. */
+  .next{list-style:none;padding:0;margin:0;}
+  .next li{padding:12px 0;border-bottom:1px solid var(--line);}
+  .next li:last-child{border-bottom:0;}
+  .next b{color:var(--ink);display:block;}
+  .next span{color:var(--ink-muted);font-size:.95em;}
+  .ongoing{border-left:3px solid var(--accent);padding-left:14px;
+           margin-top:1.4em;color:var(--ink-muted);}
+
   .lang-switch{margin-top:14px;}
   .lang-switch button{
     font:inherit;font-weight:600;font-size:0.85em;letter-spacing:0.04em;
@@ -264,6 +276,34 @@
   </ul>
 </div>
 
+
+
+<h2 data-lang-block data-lang="it">Dove sta andando</h2>
+<h2 data-lang-block data-lang="en" class="active">Where it's going</h2>
+
+<p data-lang-block data-lang="it">ScreenSpan è in sviluppo, e la cosa più onesta che posso mostrarti prima di chiederti un abbonamento è su cosa sto lavorando. Le prossime tre, in ordine:</p>
+<p data-lang-block data-lang="en" class="active">ScreenSpan is under active development, and the most honest thing I can show you before asking for a subscription is what I am working on. The next three, in order:</p>
+
+<div class="free-box">
+  <ul class="next" data-lang-block data-lang="it">
+    <li><b>Disposizione a puzzle</b><span>Telefoni misti, alcuni in verticale e altri in orizzontale, disposti come stanno davvero sul tavolo — e una schermata dove trascinarli al loro posto.</span></li>
+    <li><b>La guida per il telefono che hai</b><span>La guida alla preparazione è fotografata su un realme. Una versione per Samsung, Xiaomi, Pixel, Huawei e Motorola, con i nomi veri delle voci di quei telefoni.</span></li>
+    <li><b>Le cornici non spezzano più l'immagine</b><span>Fra due telefoni affiancati ci sono due cornici: sottraendo quei millimetri, una linea che attraversa i due schermi torna a essere una linea sola.</span></li>
+  </ul>
+  <ul class="next active" data-lang-block data-lang="en">
+    <li><b>Puzzle layout</b><span>Mixed phones, some upright and some sideways, arranged the way they actually sit on the table — plus a screen where you drag them into place.</span></li>
+    <li><b>A guide for the phone you own</b><span>The setup guide is photographed on a realme. A version for Samsung, Xiaomi, Pixel, Huawei and Motorola, with the real names those phones use.</span></li>
+    <li><b>Bezels stop breaking the picture</b><span>Between two phones side by side there are two bezels: subtract those millimetres and a line crossing both screens becomes one line again.</span></li>
+  </ul>
+</div>
+
+<p class="ongoing" data-lang-block data-lang="it">E una cosa che non finisce mai: <strong>tenere il passo con le nuove versioni di Android e con i telefoni nuovi</strong>. Il collegamento diretto è la parte che ogni produttore realizza a modo suo, quindi ogni modello provato è un modello in meno che si comporta a sorpresa.</p>
+<p class="ongoing active" data-lang-block data-lang="en">And one thing that never ends: <strong>keeping up with new Android versions and new phones</strong>. The direct link is the part each manufacturer implements its own way, so every model tested is one less model that behaves unexpectedly.</p>
+
+<div class="btn-row">
+  <a class="cta secondary" data-lang-block data-lang="it" href="https://github.com/Laerte1989/screenspan-app/blob/main/ROADMAP.md">Roadmap completa</a>
+  <a class="cta secondary active" data-lang-block data-lang="en" href="https://github.com/Laerte1989/screenspan-app/blob/main/ROADMAP.md">Full roadmap</a>
+</div>
 
 <h2 data-lang-block data-lang="it">Privacy, in parole semplici</h2>
 <h2 data-lang-block data-lang="en" class="active">Privacy, in plain words</h2>

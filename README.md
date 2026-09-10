@@ -71,7 +71,7 @@ contenuto dello schermo condiviso non lo vediamo, perché non ci arriva mai.
 
 La [**Roadmap**](ROADMAP.md) elenca quello che c'è già, quello che
 arriverà in ordine di priorità — disposizione a puzzle con telefoni
-misti, audio insieme all'immagine, guida per marca di telefono — e anche
+misti, guida all'accoppiamento per marca di telefono — e anche
 quello che **non** è in programma, così nessuno lo chiede tre volte.
 
 ## Segnalazioni e richieste
