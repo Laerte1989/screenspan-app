@@ -1,0 +1,41 @@
+name: 💡 Proposta / Idea
+description: Un'idea per rendere ScreenSpan piu' utile / An idea to make ScreenSpan more useful
+title: "[Proposta] "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Le proposte migliori partono dal **problema**, non dalla
+        soluzione: sapere cosa stavi cercando di fare lascia aperta la
+        possibilita' che esista una strada migliore di quella che avevi
+        in mente.
+
+        *The best ideas start from the **problem**, not the solution:
+        knowing what you were trying to do leaves room for a better route
+        than the one you had in mind.*
+
+  - type: textarea
+    id: problema
+    attributes:
+      label: Cosa stavi provando a fare / What were you trying to do
+      description: E cosa te lo ha impedito. / And what stopped you.
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: Come lo risolveresti / How you would solve it
+      description: Se hai un'idea precisa. Se no, va bene lasciare vuoto. / If you have something specific in mind. Leaving this empty is fine.
+
+  - type: dropdown
+    id: ruolo
+    attributes:
+      label: Riguarda / It concerns
+      options:
+        - Il telefono che condivide / The sharing phone
+        - Il telefono che guarda / The watching phone
+        - Entrambi / Both
+        - L'accoppiamento iniziale / The one-time pairing
+        - Altro / Other

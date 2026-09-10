@@ -1,0 +1,5 @@
+# Il sito e' una vetrina: si vuole che venga indicizzato tutto.
+User-agent: *
+Allow: /
+
+Sitemap: https://laerte1989.github.io/screenspan-app/sitemap.xml

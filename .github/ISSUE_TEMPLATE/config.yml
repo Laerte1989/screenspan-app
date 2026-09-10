@@ -1,0 +1,15 @@
+# Le due voci qui sotto compaiono accanto ai moduli. La prima esiste
+# perche' la maggior parte delle "segnalazioni" sull'accoppiamento sono
+# in realta' un passo saltato, e la guida le risolve in meno tempo di
+# quanto serva a scrivere una issue.
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Guida all'accoppiamento / Pairing guide
+    url: https://laerte1989.github.io/screenspan-app/guide.html
+    about: I sette passi fotografati. Se il problema e' l'accoppiamento, la risposta e' quasi sempre qui.
+  - name: 🔒 Vulnerabilita' di sicurezza / Security vulnerability
+    url: https://github.com/Laerte1989/screenspan-app/blob/main/SECURITY.md
+    about: NON aprire una issue pubblica. Si segnala per email, vedi SECURITY.md.
+  - name: ✉️ Scrivimi / Email me
+    url: mailto:laerte.developer@gmail.com
+    about: Per tutto quello che non e' un problema tecnico ne' una proposta.

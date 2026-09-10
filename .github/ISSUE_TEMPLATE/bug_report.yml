@@ -1,0 +1,83 @@
+name: 🐞 Problema con l'app / App problem
+description: Qualcosa non funziona come dovrebbe / Something does not work as it should
+title: "[Problema] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per il tempo che ci stai mettendo. Le due cose che servono
+        piu' di tutte sono **il modello dei telefoni** e **la versione di
+        Android**: quasi tutti i problemi di questa app dipendono da come
+        un produttore ha implementato il Wi-Fi Direct, quindi senza quei
+        due dati non c'e' modo di riprodurre niente.
+
+        *Thanks for taking the time. The two things that matter most are
+        the **phone models** and the **Android versions**: almost every
+        problem in this app depends on how a manufacturer implemented
+        Wi-Fi Direct, so without those two there is no way to reproduce
+        anything.*
+
+  - type: textarea
+    id: cosa
+    attributes:
+      label: Cosa succede / What happens
+      description: In una o due frasi, e cosa ti aspettavi invece. / In a sentence or two, and what you expected instead.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: quando
+    attributes:
+      label: In quale momento / At which point
+      options:
+        - Durante l'accoppiamento iniziale / During the one-time pairing
+        - I due telefoni non si trovano / The two phones do not find each other
+        - Si collegano ma l'immagine non arriva / They connect but no picture arrives
+        - L'immagine arriva ma e' scattosa o distorta / Picture arrives but is choppy or distorted
+        - I tocchi non funzionano o finiscono nel punto sbagliato / Touches do not work or land in the wrong place
+        - Il conteggio dei minuti / The minute count
+        - L'abbonamento / The subscription
+        - Altro / Other
+    validations:
+      required: true
+
+  - type: input
+    id: sorgente
+    attributes:
+      label: Telefono che CONDIVIDE / SHARING phone
+      description: Modello e versione di Android / Model and Android version
+      placeholder: "es. realme 14 Pro+ 5G, Android 16"
+    validations:
+      required: true
+
+  - type: input
+    id: ricevitore
+    attributes:
+      label: Telefono che GUARDA / WATCHING phone
+      description: Modello e versione di Android / Model and Android version
+      placeholder: "es. Huawei P9, Android 7"
+    validations:
+      required: true
+
+  - type: input
+    id: versione
+    attributes:
+      label: Versione di ScreenSpan
+      description: La trovi in fondo alla schermata principale dell'app. / At the bottom of the app's main screen.
+      placeholder: "es. 1.5"
+
+  - type: textarea
+    id: passi
+    attributes:
+      label: Come si riproduce / How to reproduce
+      description: I passaggi nell'ordine, dall'apertura dell'app. / The steps in order, starting from opening the app.
+      placeholder: |
+        1. Apro l'app sul telefono A e scelgo "Sorgente"
+        2. ...
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Altro / Anything else
+      description: Foto o un breve video aiutano piu' di qualunque descrizione. Trascinali qui. / Photos or a short video help more than any description. Drag them here.

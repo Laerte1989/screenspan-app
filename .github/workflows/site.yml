@@ -1,0 +1,20 @@
+name: Controlli del sito
+
+# Gira su ogni modifica alle pagine. Non compila e non distribuisce
+# niente - la pubblicazione la fa GitHub Pages da sola - ma impedisce che
+# finiscano online un link rotto, una pagina senza viewport o una
+# stringa che non doveva diventare pubblica.
+on:
+  push:
+    branches: [main]
+    paths: ["*.html", "*.jpg", "tools/**", ".github/workflows/site.yml"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Link, lingue, meta, segreti
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/check-site.py
