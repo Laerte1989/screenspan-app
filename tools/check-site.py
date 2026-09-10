@@ -144,6 +144,58 @@ def controlla_accenti(pagina, s):
             errore(pagina, f"accento scritto con l'apostrofo nel testo visibile: \"{trovato}'\"")
 
 
+# ── LE DUE ROADMAP NON DEVONO DIVERGERE ──────────────────────────────────
+#
+# La roadmap esiste in due file, uno per lingua, perche' i due pulsanti
+# sul sito portano a due documenti diversi. Due copie dello stesso
+# elenco divergono al primo taglio fatto da un lato solo - ed e' gia'
+# successo in questo repository: la sezione riassunta sulla home
+# annunciava fra le "prossime tre" una voce appena rimossa dal file.
+#
+# Non si confronta il TESTO, che e' tradotto e quindi diverso per
+# definizione: si confronta la STRUTTURA. Se una voce viene aggiunta,
+# rimossa o spostata di sezione in una lingua sola, i conti non tornano
+# piu' e la CI se ne accorge.
+ROADMAP_IT = "ROADMAP.md"
+ROADMAP_EN = "ROADMAP.en.md"
+
+
+def struttura_roadmap(percorso):
+    s = open(percorso, encoding="utf-8").read()
+
+    return {
+        "sezioni": len(re.findall(r"^## ", s, re.M)),
+        "voci in arrivo": len(re.findall(r"^### \d+\. ", s, re.M)),
+        "voci fatte": len(re.findall(r"^- \[x\]", s, re.M)),
+        "voci sempre in corso": len(re.findall(r"^- \[ \]", s, re.M)),
+    }
+
+
+def controlla_roadmap():
+
+    for percorso in (ROADMAP_IT, ROADMAP_EN):
+        if not os.path.exists(percorso):
+            errore(percorso, "la roadmap non esiste")
+            return
+
+    it = struttura_roadmap(ROADMAP_IT)
+    en = struttura_roadmap(ROADMAP_EN)
+
+    for chiave in it:
+        if it[chiave] != en[chiave]:
+            errore(ROADMAP_EN,
+                   f"{chiave}: {it[chiave]} in italiano, {en[chiave]} in inglese"
+                   " - una voce e' stata cambiata in una lingua sola")
+
+    # E si rimandano a vicenda: una traduzione che non si raggiunge
+    # dall'altra e' una traduzione che nessuno leggera'.
+    if ROADMAP_EN not in open(ROADMAP_IT, encoding="utf-8").read():
+        errore(ROADMAP_IT, f"non rimanda a {ROADMAP_EN}")
+
+    if ROADMAP_IT not in open(ROADMAP_EN, encoding="utf-8").read():
+        errore(ROADMAP_EN, f"non rimanda a {ROADMAP_IT}")
+
+
 def controlla_condivisione():
     """Le meta per le condivisioni, che si vedono solo incollando il link."""
 
@@ -175,6 +227,7 @@ def main():
             controlla_accenti(pagina, open(pagina, encoding="utf-8").read())
 
     controlla_condivisione()
+    controlla_roadmap()
 
     if problemi:
         print(f"\n{len(problemi)} problemi:\n")

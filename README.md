@@ -10,7 +10,7 @@
 [![Guida](https://img.shields.io/badge/Guida-illustrata-8B5CF6)](https://laerte1989.github.io/screenspan-app/guide.html)
 [![Android](https://img.shields.io/badge/Android-7.0%2B-3DDC84?logo=android&logoColor=white)](#requisiti)
 
-[**▶ Guarda la demo**](https://youtu.be/wRQ2Bynujss) · [Sito](https://laerte1989.github.io/screenspan-app/) · [Guida](https://laerte1989.github.io/screenspan-app/guide.html) · [Roadmap](ROADMAP.md) · [Privacy](https://laerte1989.github.io/screenspan-app/privacy.html)
+[**▶ Guarda la demo**](https://youtu.be/wRQ2Bynujss) · [Sito](https://laerte1989.github.io/screenspan-app/) · [Guida](https://laerte1989.github.io/screenspan-app/guide.html) · [Roadmap](ROADMAP.md) · [Roadmap EN](ROADMAP.en.md) · [Privacy](https://laerte1989.github.io/screenspan-app/privacy.html)
 
 </div>
 
@@ -74,6 +74,8 @@ arriverà in ordine di priorità — disposizione a puzzle con telefoni
 misti, guida all'accoppiamento per marca di telefono — e anche
 quello che **non** è in programma, così nessuno lo chiede tre volte.
 
+*Also available in [English](ROADMAP.en.md).*
+
 ## Segnalazioni e richieste
 
 Le [Issues](../../issues) di questo repository sono il posto giusto per
@@ -96,6 +98,7 @@ guide.html        accoppiamento in sette passi, fotografati su un telefono vero
 privacy.html      informativa privacy
 og-image.jpg      immagine di anteprima per le condivisioni
 ROADMAP.md        fatto, in arrivo, e cosa non e' in programma
+ROADMAP.en.md     la stessa roadmap in inglese
 tools/            i controlli che girano in CI su queste pagine
 ```
 
