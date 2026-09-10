@@ -46,14 +46,20 @@ collegamento diretto che creano fra loro.
   del telefono. La [guida illustrata](https://laerte1989.github.io/screenspan-app/guide.html)
   ha la fotografia di ogni schermata.
 - **Telefono che guarda:** Android 7 o più recente. Niente da configurare.
-- Fino a **quattro telefoni** in tutto.
+- **Quanti telefoni:** lo decide il telefono che condivide — è lui a
+  costruire lo schermo unito, e il massimo cambia da modello a modello.
+  L'app misura cosa il tuo regge e ti lascia scegliere fin lì.
 
 ## Quanto costa
 
-Ogni funzionalità è gratuita e non c'è pubblicità. Chi condivide ha
-**15 minuti al giorno** gratuiti, rinnovati ogni mezzanotte; chi guarda non
-paga mai e non ha limiti di tempo. Un abbonamento facoltativo toglie il
-limite giornaliero a chi condivide.
+**Puoi provarla gratis, e la prova serve a decidere.** Chi condivide ha
+**15 minuti al giorno**, rinnovati ogni mezzanotte: bastano per collegare i
+telefoni, vedere l'effetto e capire se ti torna utile — non per usarla
+tutti i giorni, e non fingiamo il contrario. Chi la trova utile passa
+all'**abbonamento annuale**, e il limite giornaliero non c'è più.
+
+Chi guarda non paga mai e non ha limiti di tempo, con o senza abbonamento.
+Nessuna pubblicità, né nella prova né dopo.
 
 ## Privacy
 
