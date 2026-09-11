@@ -3,8 +3,7 @@
 Where ScreenSpan has got to, and where it is going.
 
 *🇮🇹 [Versione italiana](ROADMAP.it.md) · These are intentions in order of
-priority, not dates: the only thing here with a date is the technical
-deadline Android imposes (see «Ongoing»).*
+priority, not dates.*
 
 ---
 
@@ -91,13 +90,6 @@ connected and already exchange the text you type.
 
 It never ends, and it is worth putting in writing.
 
-- [ ] **New Android versions**
-      Every release changes something exactly where ScreenSpan works:
-      permissions, foreground services, display handling. The deadline
-      already known and dated is **`targetSdk 37`**, when Android will
-      stop honouring the orientation an app asks for on large screens:
-      by then the watching phone must adapt to the shape it receives
-      instead of demanding one.
 - [ ] **New phones**
       Wi-Fi Direct is the part every manufacturer implements its own
       way, and nearly every real defect in this app comes from there.

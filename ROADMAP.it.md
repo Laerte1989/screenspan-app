@@ -3,8 +3,7 @@
 Dove è arrivato ScreenSpan e dove sta andando.
 
 *🇬🇧 [English version](ROADMAP.md) · Sono intenzioni in ordine di
-priorità, non date: l'unica cosa con una data è la scadenza tecnica
-imposta da Android (vedi «Sempre in corso»).*
+priorità, non date.*
 
 ---
 
@@ -89,13 +88,6 @@ collegati e già si scambiano il testo digitato.
 
 Non finisce mai, e vale la pena metterlo per iscritto.
 
-- [ ] **Nuove versioni di Android**
-      Ogni versione cambia qualcosa proprio dove ScreenSpan lavora:
-      permessi, servizi in primo piano, gestione degli schermi. La
-      scadenza già nota e datata è **`targetSdk 37`**, quando Android
-      smetterà di rispettare l'orientamento richiesto dalle app sugli
-      schermi grandi: entro allora il telefono che guarda deve adattarsi
-      alla forma che riceve invece di pretenderne una.
 - [ ] **Nuovi telefoni**
       Il Wi-Fi Direct è la parte che ogni produttore implementa a modo
       suo, e quasi ogni difetto vero di quest'app viene da lì. Ogni
