@@ -11,7 +11,7 @@
 [![Guide](https://img.shields.io/badge/Guide-illustrated-8B5CF6)](https://laerte1989.github.io/screenspan-app/guide.html)
 [![Android](https://img.shields.io/badge/Android-7.0%2B-3DDC84?logo=android&logoColor=white)](#requirements)
 
-[**▶ Watch the demo**](https://youtu.be/wRQ2Bynujss) · [Website](https://laerte1989.github.io/screenspan-app/) · [Guide](https://laerte1989.github.io/screenspan-app/guide.html) · [Roadmap](ROADMAP.md) · [Privacy](https://laerte1989.github.io/screenspan-app/privacy.html)
+[**▶ Watch the demo**](https://youtu.be/KXF2IFmliGU) · [Website](https://laerte1989.github.io/screenspan-app/) · [Guide](https://laerte1989.github.io/screenspan-app/guide.html) · [Roadmap](ROADMAP.md) · [Privacy](https://laerte1989.github.io/screenspan-app/privacy.html)
 
 </div>
 

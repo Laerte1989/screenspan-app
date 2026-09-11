@@ -267,6 +267,38 @@ def check_markdown_links():
                 fail(doc, f'the link "{target}" points at a file that does not exist')
 
 
+# The demo video's id lives in three places: the player on the home page
+# and the "watch the demo" link at the top of each README. Changing the
+# video means changing all three, and nothing about a stale one looks
+# broken - the old video simply keeps playing, which is the kind of
+# mistake that survives for months.
+VIDEO_HOLDERS = ["index.html", README_EN, README_IT]
+
+
+def check_video():
+
+    found = {}
+
+    for f in VIDEO_HOLDERS:
+        if not os.path.exists(f):
+            continue
+
+        ids = set(re.findall(r"(?:youtu\.be/|youtube-nocookie\.com/embed/)([A-Za-z0-9_-]{11})",
+                             open(f, encoding="utf-8").read()))
+
+        if not ids:
+            fail(f, "no demo video link found")
+        else:
+            found[f] = ids
+
+    everything = set().union(*found.values()) if found else set()
+
+    if len(everything) > 1:
+        for f, ids in sorted(found.items()):
+            fail(f, f"demo video id {sorted(ids)} - the three copies disagree:"
+                    f" {sorted(everything)}")
+
+
 def check_sharing():
     """The sharing meta tags, only visible when the link is pasted."""
 
@@ -300,6 +332,7 @@ def main():
     check_sharing()
     check_roadmap()
     check_readme()
+    check_video()
     check_markdown_links()
 
     if problems:
