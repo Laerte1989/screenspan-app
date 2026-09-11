@@ -106,9 +106,11 @@ It never ends, and it is worth putting in writing.
 
 Saying so avoids being asked three times.
 
-- **Connecting over an ordinary Wi-Fi network.** Wi-Fi Direct is the
-  only transport by choice: it works where there is no network at all,
-  and it does not route the images through a router we do not control.
+- **Connecting over an ordinary Wi-Fi network.** This one was tried, not
+  ruled out on paper: it turned out slower than the direct link, and it
+  needs a router, which Wi-Fi Direct does not ask for at all. So the
+  direct link stays the only transport — it works on a train and in a
+  tent, where there is no network to join.
 - **iPhone.** iOS offers nothing equivalent: neither the direct link
   used here, nor the ability to create an extra screen for an app. It is
   not a matter of time — it cannot be done.

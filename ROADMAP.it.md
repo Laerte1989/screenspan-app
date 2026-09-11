@@ -104,9 +104,11 @@ Non finisce mai, e vale la pena metterlo per iscritto.
 
 Dirlo evita che venga richiesto tre volte.
 
-- **Collegamento su rete Wi-Fi normale.** Il Wi-Fi Direct è l'unico
-  trasporto per scelta: funziona anche dove non c'è nessuna rete, e non
-  fa passare le immagini per un router che non controlliamo.
+- **Collegamento su rete Wi-Fi normale.** Questo è stato provato, non
+  escluso sulla carta: è risultato più lento del collegamento diretto, e
+  richiede un router, che il Wi-Fi Direct non chiede affatto. Quindi il
+  collegamento diretto resta l'unico trasporto — funziona in treno e in
+  tenda, dove non c'è nessuna rete a cui collegarsi.
 - **iPhone.** iOS non offre nulla di equivalente: né il collegamento
   diretto usato qui, né la possibilità di creare uno schermo aggiuntivo
   per un'app. Non è una questione di tempo, è che non si può.
