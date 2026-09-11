@@ -83,13 +83,6 @@ codice: è la cosa che più farebbe arrivare in fondo chi ha installato.
 Copiare su un telefono e incollare sull'altro, dato che i due sono già
 collegati e già si scambiano il testo digitato.
 
-### 4. Tablet e Android TV come schermo
-
-Un tablet come telefono che guarda dà molto più spazio di un telefono, e
-non richiede niente che non ci sia già. Va però verificato sul serio
-come si comporta sugli schermi grandi — vedi la scadenza di
-`targetSdk 37` in «Sempre in corso».
-
 ---
 
 ## 🔄 Sempre in corso

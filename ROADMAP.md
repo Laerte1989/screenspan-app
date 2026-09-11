@@ -85,13 +85,6 @@ installed the app get to the end.
 Copy on one phone and paste on the other, given that the two are already
 connected and already exchange the text you type.
 
-### 4. Tablet and Android TV as a display
-
-A tablet as the watching device gives far more room than a phone, and
-needs nothing that is not already there. How it behaves on large screens
-does need proper testing, though — see the `targetSdk 37` deadline under
-«Ongoing».
-
 ---
 
 ## 🔄 Ongoing
